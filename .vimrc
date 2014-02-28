@@ -26,6 +26,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-=> <C-W>=
 
+" buffers
+nmap <leader>l :bn<cr>
+nmap <leader>k :bp<cr>
+nmap <leader>q :bd<cr>
+
 set splitbelow
 set splitright
 
@@ -60,8 +65,16 @@ set sidescroll=1
 " ===== clipboard =====
 set clipboard=unnamed
 
+" jump to last know cursor location
+autocmd BufReadPost *
+  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+
 " ===== pathogen =====
 execute pathogen#infect()
+call pathogen#helptags()
 
 " ===== theme =====
 colorscheme hybrid
@@ -107,3 +120,6 @@ endif
 " ===== NERDTree =====
 nmap <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
+
+" ===== gitgutter =====
+hi clear SignColumn
