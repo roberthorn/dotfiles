@@ -15,6 +15,8 @@ set t_Co=256
 
 syntax on
 
+set list listchars=tab:»·,trail:· " trailing whitespace
+
 " remappings
 let mapleader=","
 set pastetoggle=<F2>
@@ -108,6 +110,12 @@ let g:airline_section_y = '%{&filetype}'
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gc :Gcommit -a<cr>
 
+" ===== syntastic =====
+" let g:syntastic_quiet_messages = { "level": "warnings" }
+
+" ===== bufferline =====
+let g:bufferline_echo = 0
+
 " ===== ctrlp =====
 if executable('ag')
   " use silver searcher
@@ -123,3 +131,4 @@ let g:NERDTreeWinPos = "right"
 
 " ===== gitgutter =====
 hi clear SignColumn
+
