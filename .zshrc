@@ -12,9 +12,10 @@ alias vi=vim
 alias gi='go install'
 alias gir='go install && `basename $PWD`'
 alias pgme='psql -h absker.com -U wookie'
+alias squash='git fetch upstream && git rebase -i HEAD~`git cherry -v upstream/master | wc -l | tr -d " "`'
 
 # directory aliases
-
+alias godoctor='cd $GOPATH/src/golang-refactoring.org/go-doctor'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -42,7 +43,7 @@ DISABLE_CORRECTION="true"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -74,8 +75,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # GO
 export GOPATH=/Users/robert/Dev/go
-export GOROOT=/usr/local/Cellar/go/1.2/libexec
-export PATH=$PATH:/usr/local/Cellar/go/1.2/libexec/bin
+export GOROOT=/usr/local/Cellar/go/1.2.1/libexec
+export PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
 export PATH=$PATH:/$GOPATH/bin
 # rvm
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
