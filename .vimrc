@@ -89,6 +89,7 @@ filetype plugin indent on
 syntax on
 " gofmt on save
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+let g:gofmt_command="goimports"
 
 " ===== airline =====
 set laststatus=2
