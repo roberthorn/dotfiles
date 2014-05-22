@@ -13,6 +13,9 @@ set visualbell
 set autoread
 set t_Co=256
 
+" file encryption
+set cryptmethod=blowfish
+
 syntax on
 
 set list listchars=tab:»·,trail:· " trailing whitespace

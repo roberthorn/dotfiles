@@ -12,7 +12,7 @@ alias vi=vim
 alias gi='go install'
 alias gir='go install && `basename $PWD`'
 alias pgme='psql -h absker.com -U wookie'
-alias squash='git fetch upstream && git rebase -i HEAD~`git cherry -v upstream/master | wc -l | tr -d " "`'
+alias squash='git fetch origin && git rebase -i HEAD~`git cherry -v origin/master | wc -l | tr -d " "`'
 
 # directory aliases
 alias godoctor='cd $GOPATH/src/golang-refactoring.org/go-doctor'
@@ -74,9 +74,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # GO
-export GOPATH=/Users/robert/Dev/go
-export GOROOT=/usr/local/Cellar/go/1.2.1/libexec
-export PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
-export PATH=$PATH:/$GOPATH/bin
+export GOPATH=$HOME/Dev/go
+export GOROOT=/usr/local/Cellar/go/1.2.2/libexec
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
 # rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
