@@ -88,6 +88,7 @@ colorscheme hybrid
 filetype off
 filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
+set rtp+=$GOPATH/src/golang-refactoring.org/go-doctor/cmd/godoctor/vim
 filetype plugin indent on
 syntax on
 " gofmt on save
@@ -109,6 +110,11 @@ if ! has('gui_running')
 endif
 let g:airline_section_x = ''
 let g:airline_section_y = '%{&filetype}'
+
+" ===== python =====
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
 
 " ===== fugitive =====
 nmap <leader>gs :Gstatus<cr>

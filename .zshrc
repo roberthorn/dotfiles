@@ -13,9 +13,8 @@ alias gi='go install'
 alias gir='go install && `basename $PWD`'
 alias pgme='psql -h absker.com -U wookie'
 alias squash='git fetch origin && git rebase -i HEAD~`git cherry -v origin/master | wc -l | tr -d " "`'
-
-# directory aliases
-alias godoctor='cd $GOPATH/src/golang-refactoring.org/go-doctor'
+# godoctor
+alias gidoctor='go install golang-refactoring.org/go-doctor/cmd/godoctor'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -75,9 +74,18 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # GO
 export GOPATH=$HOME/Dev/go
-export GOROOT=/usr/local/Cellar/go/1.2.2/libexec
+export GOROOT=/usr/local/Cellar/go/1.3/libexec
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOBIN
 # rvm
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Dev/python
+pyenv virtualenvwrapper
