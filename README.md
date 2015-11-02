@@ -3,7 +3,7 @@ dotfiles
 
 What I'm using...
 
-== To Do ==
+## To Do
 - install script
 - add git info to prompt
 - antigen plugins
