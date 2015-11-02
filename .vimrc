@@ -31,6 +31,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-=> <C-W>=
 
+nnoremap <leader>w :w<CR>
+
 " buffers
 nmap <leader>l :bn<cr>
 nmap <leader>k :bp<cr>
@@ -88,7 +90,6 @@ colorscheme hybrid
 filetype off
 filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
-set rtp+=$GOPATH/src/golang-refactoring.org/go-doctor/cmd/godoctor/vim
 filetype plugin indent on
 syntax on
 " gofmt on save
@@ -111,6 +112,21 @@ if ! has('gui_running')
 endif
 let g:airline_section_x = ''
 let g:airline_section_y = '%{&filetype}'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
 
 " ===== python =====
 autocmd FileType python set sw=4
