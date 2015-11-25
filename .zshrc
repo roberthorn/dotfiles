@@ -26,6 +26,7 @@ antigen apply
 sources=(
   'alias'
   'completions'
+  'editor'
   'path'
   'prompt'
 )
