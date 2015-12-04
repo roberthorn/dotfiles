@@ -105,6 +105,17 @@ call plug#end()
 " ===== theme =====
 colorscheme hybrid
 
+" ===== go =====
+filetype off
+filetype plugin indent off
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+" gofmt on save
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"let g:gofmt_command="goimports"
+let g:go_fmt_command = "goimports"
+
 " ===== airline =====
 set laststatus=2
 set noshowmode
@@ -138,4 +149,29 @@ let g:airline_mode_map = {
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
+
+" ===== python =====
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
+
+" ===== fugitive =====
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gc :Gcommit -a<cr>
+
+" ===== ctrlp =====
+if executable('ag')
+  " use silver searcher
+  set grepprg=ag\ --nogroup\ --nocolor
+  " use ag in CtrlP
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching=0
+endif
+
+" ===== NERDTree =====
+nmap <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
+
+" ===== gitgutter =====
+hi clear SignColumn
 
