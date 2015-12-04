@@ -1,0 +1,141 @@
+filetype off
+
+set encoding=utf-8
+
+set number
+set relativenumber
+set backspace=indent,eol,start
+set history=1000
+set showcmd
+set showmode
+set visualbell
+set autoread
+set t_Co=256
+
+" file encryption
+" TODO neovim encryption?
+" set cryptmethod=blowfish
+
+syntax on
+
+set list listchars=tab:»·,trail:· " trailing whitespace
+
+" remappings
+let mapleader=","
+set pastetoggle=<F2>
+
+" splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-=> <C-W>=
+
+nnoremap <leader>w :w<CR>
+
+" buffers
+nmap <leader>l :bn<cr>
+nmap <leader>k :bp<cr>
+nmap <leader>q :bd<cr>
+
+set splitbelow
+set splitright
+
+" ===== search settings =====
+set incsearch
+set hlsearch
+
+" ===== swaps =====
+set noswapfile
+set nobackup
+set nowb
+
+" ===== indents =====
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+filetype plugin indent on
+
+set nowrap
+set linebreak
+
+" ===== scrolling =====
+set scrolloff=8
+set sidescrolloff=10
+set sidescroll=1
+
+" ===== clipboard =====
+" TODO clipboard tool needed
+" set clipboard=unnamed
+
+" jump to last know cursor location
+autocmd BufReadPost *
+  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+" ===== pathogen =====
+" TODO needed?
+"execute pathogen#infect()
+"call pathogen#helptags()
+
+call plug#begin('~/.nvim/bundle')
+
+Plug 'bling/vim-airline'
+Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'fatih/vim-go'
+
+Plug 'benekastah/neomake'
+
+call plug#end()
+
+" ===== theme =====
+colorscheme hybrid
+
+" ===== airline =====
+set laststatus=2
+set noshowmode
+let g:airline_theme = 'bubblegum'
+let g:airline_powerline_fonts = 1
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
+let g:airline_section_x = ''
+let g:airline_section_y = '%{&filetype}'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ '' : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ '' : 'S',
+  \ }
+
+" ===== bufferline =====
+let g:bufferline_echo = 0
+
