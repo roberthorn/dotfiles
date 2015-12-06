@@ -79,6 +79,8 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+autocmd! BufWritePost * Neomake
+
 " ===== pathogen =====
 " TODO needed?
 "execute pathogen#infect()
