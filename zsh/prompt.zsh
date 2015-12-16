@@ -16,4 +16,5 @@ p_colored_path() {
   echo "${${PWD/#$HOME/~}//\//$slash}"
 }
 
-PROMPT=' %F{blue}λ%f $(p_colored_path)$(p_git_info)$(p_arrow) '
+#PROMPT=' %F{blue}λ%f $(p_colored_path)$(p_git_info)$(p_arrow) '
+PROMPT=' %F{blue}λ%f (%c)$(p_git_info)$(p_arrow) '
