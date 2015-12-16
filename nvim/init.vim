@@ -90,17 +90,21 @@ call plug#begin('~/.nvim/bundle')
 
 Plug 'bling/vim-airline'
 Plug 'bling/vim-bufferline'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'benekastah/neomake'
+
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 Plug 'fatih/vim-go'
 
-Plug 'benekastah/neomake'
+Plug 'kchmck/vim-coffee-script'
+Plug 'moll/vim-node'
+Plug 'walm/jshint.vim'
 
 call plug#end()
 

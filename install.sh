@@ -2,9 +2,11 @@
 # TODO install zsh
 # TODO install git
 # TODO install vim/nvim
+# TODO clean up, follow some guidelines
+# http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming
 
 #REPOPATH="$(cd $(dirname $(readlink -f ${(%):-%N})); pwd)"
-REPOPATH="$(pwd)"
+readonly REPOPATH="$(pwd)"
 
 if [[ ! -e ~/.zshrc ]]; then
   ln -sf $REPOPATH/.zshrc ~/.zshrc

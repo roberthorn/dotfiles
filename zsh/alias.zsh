@@ -1,5 +1,6 @@
 # meh
 alias vi=vim
+alias vim=nvim
 alias ls='ls --color'
 
 # git
