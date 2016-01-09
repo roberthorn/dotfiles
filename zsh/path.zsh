@@ -6,3 +6,6 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOBIN
 
+# android
+export PATH=$PATH:$HOME/Dev/Android/Sdk/platform-tools
+

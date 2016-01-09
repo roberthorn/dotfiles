@@ -94,6 +94,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benekastah/neomake'
 
