@@ -88,8 +88,10 @@ autocmd! BufWritePost * Neomake
 
 call plug#begin('~/.nvim/bundle')
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
+
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -110,6 +112,7 @@ Plug 'walm/jshint.vim'
 call plug#end()
 
 " ===== theme =====
+set background=dark
 colorscheme hybrid
 
 " ===== go =====
