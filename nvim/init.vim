@@ -10,7 +10,7 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-set t_Co=256
+"set t_Co=256
 
 " file encryption
 " TODO neovim encryption?
@@ -92,6 +92,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 
+Plug 'w0ng/vim-hybrid'
+
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -104,6 +106,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'fatih/vim-go'
+
+Plug 'rust-lang/rust.vim'
 
 Plug 'kchmck/vim-coffee-script'
 Plug 'moll/vim-node'

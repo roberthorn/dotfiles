@@ -1,5 +1,6 @@
 # git repo
-readonly REPOPATH="$(cd $(dirname $(readlink -f ${(%):-%N})); pwd)"
+# readonly REPOPATH="$(cd $(dirname $(readlink -f ${(%):-%N})); pwd)"
+readonly REPOPATH=$HOME/Dev/dotfiles
 
 # history
 setopt hist_ignore_space
