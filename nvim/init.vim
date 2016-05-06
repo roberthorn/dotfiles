@@ -93,6 +93,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 
 Plug 'w0ng/vim-hybrid'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -109,7 +110,9 @@ Plug 'fatih/vim-go'
 
 Plug 'rust-lang/rust.vim'
 
-Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
 Plug 'walm/jshint.vim'
 
