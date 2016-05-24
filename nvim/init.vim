@@ -59,6 +59,9 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype python setlocal ts=4 sts=4 sw=4
+
 filetype plugin indent on
 
 set nowrap
@@ -81,11 +84,7 @@ autocmd BufReadPost *
 
 autocmd! BufWritePost * Neomake
 
-" ===== pathogen =====
-" TODO needed?
-"execute pathogen#infect()
-"call pathogen#helptags()
-
+" plugins
 call plug#begin('~/.nvim/bundle')
 
 Plug 'vim-airline/vim-airline'
@@ -129,8 +128,6 @@ set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 " gofmt on save
-"autocmd FileType go autocmd BufWritePre <buffer> Fmt
-"let g:gofmt_command="goimports"
 let g:go_fmt_command = "goimports"
 
 " ===== airline =====
