@@ -20,35 +20,42 @@ syntax on
 
 set list listchars=tab:»·,trail:· " trailing whitespace
 
-" remappings
+" ===== remappings =====
 let mapleader=","
 set pastetoggle=<F2>
+" ===== end remappings =====
 
-" splits
+" ===== alias =====
+nnoremap <leader>w :w<CR>
+" ===== end alias =====
+
+" ===== splits =====
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-=> <C-W>=
+" ===== end splits =====
 
-nnoremap <leader>w :w<CR>
-
-" buffers
+" ===== buffers =====
 nmap <leader>l :bn<cr>
 nmap <leader>k :bp<cr>
 nmap <leader>q :bd<cr>
 
 set splitbelow
 set splitright
+" ===== end buffers =====
 
 " ===== search settings =====
 set incsearch
 set hlsearch
+" ===== end search =====
 
 " ===== swaps =====
 set noswapfile
 set nobackup
 set nowb
+" ===== end swaps =====
 
 " ===== indents =====
 set autoindent
@@ -63,14 +70,32 @@ autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
 filetype plugin indent on
+" ===== end indents =====
 
+" ===== wraps =====
 set nowrap
 set linebreak
+
+command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
+
+" TODO these don't work as expected...
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+" ===== end wraps =====
 
 " ===== scrolling =====
 set scrolloff=8
 set sidescrolloff=10
 set sidescroll=1
+" ===== end scrolling =====
 
 " ===== clipboard =====
 " TODO clipboard tool needed
@@ -84,7 +109,7 @@ autocmd BufReadPost *
 
 autocmd! BufWritePost * Neomake
 
-" plugins
+" ===== plugins =====
 call plug#begin('~/.nvim/bundle')
 
 Plug 'vim-airline/vim-airline'
@@ -94,6 +119,7 @@ Plug 'bling/vim-bufferline'
 Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
 
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -101,11 +127,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benekastah/neomake'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'fatih/vim-go'
+Plug 'godoctor/godoctor.vim'
 
 Plug 'rust-lang/rust.vim'
 
@@ -116,6 +144,7 @@ Plug 'moll/vim-node'
 Plug 'walm/jshint.vim'
 
 call plug#end()
+" ===== end plugins =====
 
 " ===== theme =====
 set background=dark
@@ -180,6 +209,9 @@ if executable('ag')
   " use ag in CtrlP
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching=0
+  let g:ctrlp_custom_ignore = {
+        \ 'dir': 'node_modules\|\.git'
+        \ }
 endif
 
 " ===== NERDTree =====
@@ -188,4 +220,7 @@ let g:NERDTreeWinPos = "right"
 
 " ===== gitgutter =====
 hi clear SignColumn
+
+" Align GitHub Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
