@@ -128,6 +128,7 @@ Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
+Plug 'justinmk/vim-sneak'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
