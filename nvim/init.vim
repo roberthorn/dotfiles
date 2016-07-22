@@ -64,10 +64,10 @@ set nowb
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+"set expandtab
 
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 autocmd Filetype python setlocal ts=4 sts=4 sw=4
