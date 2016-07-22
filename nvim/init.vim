@@ -27,7 +27,10 @@ set pastetoggle=<F2>
 
 " ===== alias =====
 nnoremap <leader>w :w<CR>
+nnoremap :Q :q!
 " ===== end alias =====
+
+imap <C-e> <CR><Esc>O
 
 " ===== splits =====
 nnoremap <C-J> <C-W><C-J>
