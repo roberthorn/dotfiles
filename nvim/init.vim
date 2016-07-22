@@ -10,7 +10,7 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-set t_Co=256
+"set t_Co=256
 
 " file encryption
 " TODO neovim encryption?
@@ -67,10 +67,9 @@ set smarttab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-"set expandtab
 
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
+"autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+"autocmd Filetype python setlocal ts=4 sts=4 sw=4
 
 filetype plugin indent on
 " ===== end indents =====
@@ -80,18 +79,6 @@ set nowrap
 set linebreak
 
 command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
-
-" TODO these don't work as expected...
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
 " ===== end wraps =====
 
 " ===== scrolling =====
@@ -109,8 +96,6 @@ autocmd BufReadPost *
   \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
-
-autocmd! BufWritePost * Neomake
 
 " ===== plugins =====
 call plug#begin('~/.nvim/bundle')
@@ -159,7 +144,9 @@ set background=dark
 colorscheme hybrid
 
 " ===== neomake =====
+autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+" ===== end neomake =====
 
 " ===== go =====
 filetype off
@@ -203,11 +190,6 @@ let g:airline_mode_map = {
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
-
-" ===== python =====
-autocmd FileType python set sw=4
-autocmd FileType python set ts=4
-autocmd FileType python set sts=4
 
 " ===== fugitive =====
 nmap <leader>gs :Gstatus<cr>
