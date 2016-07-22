@@ -10,7 +10,7 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-"set t_Co=256
+set t_Co=256
 
 " file encryption
 " TODO neovim encryption?
@@ -112,6 +112,8 @@ autocmd! BufWritePost * Neomake
 " ===== plugins =====
 call plug#begin('~/.nvim/bundle')
 
+Plug 'benekastah/neomake'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
@@ -120,16 +122,17 @@ Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'tpope/vim-markdown'
+
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'benekastah/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
-
+Plug 'Raimondi/delimitMate'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
@@ -138,11 +141,12 @@ Plug 'godoctor/godoctor.vim'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
-Plug 'walm/jshint.vim'
+"Plug 'walm/jshint.vim'
 
 call plug#end()
 " ===== end plugins =====
@@ -150,6 +154,9 @@ call plug#end()
 " ===== theme =====
 set background=dark
 colorscheme hybrid
+
+" ===== neomake =====
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " ===== go =====
 filetype off
