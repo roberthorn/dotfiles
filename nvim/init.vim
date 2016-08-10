@@ -129,6 +129,9 @@ Plug 'godoctor/godoctor.vim'
 
 Plug 'rust-lang/rust.vim'
 
+"Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
