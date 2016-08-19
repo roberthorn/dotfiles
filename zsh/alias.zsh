@@ -1,6 +1,5 @@
 # meh
-alias vi=vim
-alias vim=nvim
+alias ni=nvim
 alias ls='ls -G'
 alias ll='ls -la'
 
