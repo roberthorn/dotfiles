@@ -1,7 +1,6 @@
 [user]
 	name = Robert Horn
 	email = rehorn09@gmail.com
-	signingkey = 43A8F004
 [core]
 	editor = vim
 [alias]
