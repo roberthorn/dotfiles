@@ -107,7 +107,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 
 Plug 'w0ng/vim-hybrid'
-Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'tpope/vim-markdown'
 
@@ -120,16 +119,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'Raimondi/delimitMate'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
 
-Plug 'rust-lang/rust.vim'
-
-"Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 
 Plug 'jelera/vim-javascript-syntax'
@@ -137,7 +132,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
-"Plug 'walm/jshint.vim'
 
 call plug#end()
 " ===== end plugins =====
