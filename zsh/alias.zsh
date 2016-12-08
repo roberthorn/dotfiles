@@ -4,6 +4,8 @@ alias vim=nvim
 alias ls='ls -G'
 alias ll='ls -la'
 
+alias tmux="TERM=screen-256color-bce tmux"
+
 alias pang='ping -c 3 www.google.com'
 
 # git
