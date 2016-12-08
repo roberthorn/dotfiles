@@ -8,6 +8,7 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOBIN
 
 export CDPATH=$CDPATH:$GOPATH/src
+
 # android
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 

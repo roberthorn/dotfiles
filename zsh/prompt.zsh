@@ -29,5 +29,4 @@ p_envs() {
 	[[ -n $envs ]] && echo "[$envs]"
 }
 
-#PROMPT=' %F{blue}λ%f $(p_colored_path)$(p_git_info)$(p_arrow) '
 PROMPT=' %F{blue}λ%f $(p_envs)(%c)$(p_git_info)$(p_arrow) '

@@ -8,6 +8,7 @@
 #REPOPATH="$(cd $(dirname $(readlink -f ${(%):-%N})); pwd)"
 readonly REPOPATH="$(pwd)"
 
+# link config files
 if [[ ! -e ~/.zshrc ]]; then
   ln -sf $REPOPATH/.zshrc ~/.zshrc
 fi
@@ -15,13 +16,13 @@ if [[ ! -e ~/.gitconfig ]]; then
   ln -sf $REPOPATH/.gitconfig ~/.gitconfig
 fi
 
-# neovim
+# neovim configuration
 if [[ ! -d ~/.nvim ]]; then
   mkdir ~/.nvim
   mkdir ~/.nvim/autoload
   mkdir ~/.nvim/bundle
   mkdir ~/.nvim/colors
-  # curl -LSso ~/.nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
   curl -fLo ~/.nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ln -sf ~/.nvim/ ~/.config/nvim
 fi
