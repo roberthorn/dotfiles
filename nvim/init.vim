@@ -109,6 +109,7 @@ Plug 'bling/vim-bufferline'
 Plug 'w0ng/vim-hybrid'
 
 Plug 'tpope/vim-markdown'
+Plug 'vimwiki/vimwiki'
 
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
