@@ -8,12 +8,29 @@
 #REPOPATH="$(cd $(dirname $(readlink -f ${(%):-%N})); pwd)"
 readonly REPOPATH="$(pwd)"
 
+p_is_osx() {
+  [ "$(uname -s)" = Darwin ]
+}
+
+p_is_linux() {
+  [ "$(uname -s)" = Linux ]
+}
+
 # link config files
 if [[ ! -e ~/.zshrc ]]; then
   ln -sf $REPOPATH/.zshrc ~/.zshrc
 fi
 if [[ ! -e ~/.gitconfig ]]; then
   ln -sf $REPOPATH/.gitconfig ~/.gitconfig
+fi
+if [[ ! -e ~/.ctags ]]; then
+  ln -sf $REPOPATH/.ctags ~/.ctags
+fi
+
+if p_is_osx; then
+  echo "Installing Homebrew packages"
+  brew update brew tap homebrew/bundle
+  brew bundle
 fi
 
 # neovim configuration

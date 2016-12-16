@@ -1,0 +1,7 @@
+# basic
+--recurse=yes
+
+# exclusions
+--exclude=.git
+--exclude=vendor
+--exclude=node_modules

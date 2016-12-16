@@ -105,6 +105,7 @@ Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
+Plug 'majutsushi/tagbar'
 
 Plug 'w0ng/vim-hybrid'
 
@@ -154,6 +155,9 @@ filetype plugin indent on
 syntax on
 " gofmt on save
 let g:go_fmt_command = "goimports"
+
+" ===== tagbar =====
+nnoremap <silent> <leader>tb :TagbarToggle<CR>
 
 " ===== airline =====
 set laststatus=2
