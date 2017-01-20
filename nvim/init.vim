@@ -70,6 +70,7 @@ set tabstop=4
 
 "autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 filetype plugin indent on
 " ===== end indents =====
