@@ -12,6 +12,9 @@ set visualbell
 set autoread
 "set t_Co=256
 
+set path+=**
+set wildmenu
+
 " file encryption
 " TODO neovim encryption?
 " set cryptmethod=blowfish
