@@ -46,7 +46,7 @@ nnoremap <C-=> <C-W>=
 " ===== buffers =====
 nmap <leader>l :bn<cr>
 nmap <leader>k :bp<cr>
-nmap <leader>q :bd<cr>
+nmap <leader>q :bw<cr>
 
 set splitbelow
 set splitright
@@ -152,12 +152,6 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 " ===== end neomake =====
 
 " ===== go =====
-filetype off
-filetype plugin indent off
-set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-" gofmt on save
 let g:go_fmt_command = "goimports"
 
 " ===== tagbar =====
