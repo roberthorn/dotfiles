@@ -97,9 +97,9 @@ set sidescroll=1
 
 " jump to last know cursor location
 autocmd BufReadPost *
-  \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-  \   exe "normal g`\"" |
-  \ endif
+	\ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal g`\"" |
+	\ endif
 
 " ===== plugins =====
 call plug#begin('~/.nvim/bundle')
@@ -163,30 +163,30 @@ set noshowmode
 let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
 if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
 endif
 let g:airline_section_x = ''
 let g:airline_section_y = '%{&filetype}'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'c'  : 'C',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V',
-  \ '' : 'V',
-  \ 's'  : 'S',
-  \ 'S'  : 'S',
-  \ '' : 'S',
-  \ }
+	\ '__' : '-',
+	\ 'n'  : 'N',
+	\ 'i'  : 'I',
+	\ 'R'  : 'R',
+	\ 'c'  : 'C',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V',
+	\ '' : 'V',
+	\ 's'  : 'S',
+	\ 'S'  : 'S',
+	\ '' : 'S',
+	\ }
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
@@ -197,14 +197,14 @@ nmap <leader>gc :Gcommit -a<cr>
 
 " ===== ctrlp =====
 if executable('ag')
-  " use silver searcher
-  set grepprg=ag\ --nogroup\ --nocolor
-  " use ag in CtrlP
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching=0
-  let g:ctrlp_custom_ignore = {
-        \ 'dir': 'node_modules\|\.git'
-        \ }
+	" use silver searcher
+	set grepprg=ag\ --nogroup\ --nocolor
+	" use ag in CtrlP
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_use_caching=0
+	let g:ctrlp_custom_ignore = {
+		\ 'dir': 'node_modules\|\.git'
+		\ }
 endif
 
 " ===== NERDTree =====
@@ -217,3 +217,8 @@ hi clear SignColumn
 " Align GitHub Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
+" Lisp
+augroup Lisp
+	au FileType lisp let b:delimitMate_quotes = "\""
+	au FileType lisp setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
