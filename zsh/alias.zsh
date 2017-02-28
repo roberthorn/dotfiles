@@ -4,6 +4,8 @@ alias vim=nvim
 alias ls='ls -G'
 alias ll='ls -la'
 
+alias r='ranger'
+
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias wiki="vim ~/vimwiki/index.wiki"
