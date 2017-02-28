@@ -111,7 +111,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'majutsushi/tagbar'
 
-Plug 'w0ng/vim-hybrid'
+Plug 'roberthorn/vim-hybrid'
 
 Plug 'tpope/vim-markdown'
 Plug 'vimwiki/vimwiki'
