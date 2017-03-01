@@ -6,8 +6,6 @@ alias ll='ls -la'
 
 alias r='ranger'
 
-alias tmux="TERM=screen-256color-bce tmux"
-
 alias wiki="vim ~/vimwiki/index.wiki"
 
 alias pang='ping -c 3 www.google.com'
