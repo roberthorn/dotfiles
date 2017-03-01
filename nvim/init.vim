@@ -93,7 +93,7 @@ set sidescroll=1
 
 " ===== clipboard =====
 " TODO clipboard tool needed
-" set clipboard=unnamed
+set clipboard=unnamed
 
 " jump to last know cursor location
 autocmd BufReadPost *
@@ -143,6 +143,7 @@ call plug#end()
 " ===== end plugins =====
 
 " ===== theme =====
+set termguicolors
 set background=dark
 colorscheme hybrid
 
