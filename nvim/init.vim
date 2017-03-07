@@ -10,7 +10,6 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-"set t_Co=256
 
 set path+=**
 set wildmenu
@@ -119,7 +118,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
@@ -127,6 +127,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
@@ -142,6 +143,8 @@ Plug 'moll/vim-node'
 call plug#end()
 " ===== end plugins =====
 
+let g:deoplete#enable_at_startup = 1
+
 " ===== theme =====
 set termguicolors
 set background=dark
@@ -154,9 +157,37 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 
 " ===== go =====
 let g:go_fmt_command = "goimports"
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
 
 " ===== tagbar =====
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 " ===== airline =====
 set laststatus=2
@@ -208,9 +239,8 @@ if executable('ag')
 		\ }
 endif
 
-" ===== NERDTree =====
-nmap <leader>n :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
+" ===== ranger =====
+nmap <leader>r :Ranger<CR>
 
 " ===== gitgutter =====
 hi clear SignColumn
