@@ -193,7 +193,7 @@ let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 " ===== airline =====
 set laststatus=2
 set noshowmode
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'raven'
 let g:airline_powerline_fonts = 1
 if ! has('gui_running')
 	set ttimeoutlen=10
