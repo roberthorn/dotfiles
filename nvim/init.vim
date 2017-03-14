@@ -51,6 +51,11 @@ set splitbelow
 set splitright
 " ===== end buffers =====
 
+" ===== definitions =====
+" open definition in vertical window
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" ===== end definitions =====
+
 " ===== search settings =====
 set incsearch
 set hlsearch
@@ -127,7 +132,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'easymotion/vim-easymotion'
 
 Plug 'fatih/vim-go'
@@ -185,6 +189,8 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+au FileType go map <C-\> :vsp <CR>:GoDef<CR>
 
 " ===== tagbar =====
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
