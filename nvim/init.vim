@@ -45,7 +45,7 @@ nnoremap <C-=> <C-W>=
 " ===== buffers =====
 nmap <leader>l :bn<cr>
 nmap <leader>k :bp<cr>
-nmap <leader>q :bw<cr>
+nmap <leader>q :bwipeout<cr>
 
 set splitbelow
 set splitright
@@ -147,6 +147,9 @@ Plug 'moll/vim-node'
 
 call plug#end()
 " ===== end plugins =====
+
+" ===== easymotion =====
+map <Space> <Plug>(easymotion-prefix)
 
 let g:deoplete#enable_at_startup = 1
 
