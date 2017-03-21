@@ -145,6 +145,8 @@ Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
 
+Plug 'wlangstroth/vim-racket'
+
 call plug#end()
 " ===== end plugins =====
 
