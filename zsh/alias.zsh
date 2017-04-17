@@ -1,7 +1,12 @@
 # meh
 alias ni=nvim
 alias vim=nvim
-alias ls='ls -G'
+if [[ `uname` == 'Linux' ]]; then
+	alias ls='ls -G --color'
+else
+	alias ls='ls -G'
+fi
+
 alias ll='ls -la'
 
 alias r='ranger'
