@@ -75,7 +75,10 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-"autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+" ===== folding =====
+set foldmethod=indent
+
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -127,6 +130,8 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'Raimondi/delimitMate'
