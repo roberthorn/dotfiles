@@ -256,8 +256,11 @@ if executable('ag')
 		\ }
 endif
 
+" ===== fzf =====
+nmap <C-f> :FZF
+
 " ===== ranger =====
-nmap <leader>r :Ranger<CR>
+"nmap <leader>r :Ranger<CR>
 
 " ===== gitgutter =====
 hi clear SignColumn
