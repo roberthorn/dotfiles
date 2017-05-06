@@ -10,7 +10,7 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-set guicursor=n-v:hor50-blinkwait300-blinkon100-blinkoff100,i-c:ver25-blinkwait300-blinkon100-blinkoff100
+"set guicursor=n-v:hor50-blinkwait300-blinkon100-blinkoff100,i-c:ver25-blinkwait300-blinkon100-blinkoff100
 set mouse=a
 
 set path+=**
@@ -153,6 +153,8 @@ Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
 
 Plug 'wlangstroth/vim-racket'
+
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 " ===== end plugins =====
