@@ -223,6 +223,7 @@ if ! has('gui_running')
 		au InsertLeave * set timeoutlen=1000
 	augroup END
 endif
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_x = ''
 let g:airline_section_y = '%{&filetype}'
 let g:airline_left_sep = ''
