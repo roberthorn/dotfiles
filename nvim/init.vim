@@ -125,6 +125,7 @@ Plug 'roberthorn/vim-hybrid'
 Plug 'tpope/vim-markdown'
 Plug 'vimwiki/vimwiki'
 
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
@@ -171,7 +172,6 @@ colorscheme hybrid
 
 " ===== neomake =====
 autocmd! BufWritePost * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
 " ===== end neomake =====
 
 " ===== go =====
@@ -278,3 +278,6 @@ augroup Lisp
 	au FileType lisp let b:delimitMate_quotes = "\""
 	au FileType lisp setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
+
+" JavaScript
+autocmd BufWritePre *.js Neoformat
