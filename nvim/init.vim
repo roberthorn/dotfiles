@@ -34,7 +34,7 @@ nnoremap <leader>w :w<CR>
 nnoremap :Q :q!
 " ===== end alias =====
 
-imap <C-e> <CR><Esc>O
+inoremap <C-e> <CR><Esc>O
 
 " ===== splits =====
 nnoremap <C-J> <C-W><C-J>
@@ -45,9 +45,9 @@ nnoremap <C-=> <C-W>=
 " ===== end splits =====
 
 " ===== buffers =====
-nmap <leader>l :bn<cr>
-nmap <leader>k :bp<cr>
-nmap <leader>q :bwipeout<cr>
+nnoremap <leader>l :bn<cr>
+nnoremap <leader>k :bp<cr>
+nnoremap <leader>q :bwipeout<cr>
 
 set splitbelow
 set splitright
@@ -55,7 +55,7 @@ set splitright
 
 " ===== definitions =====
 " open definition in vertical window
-map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " ===== end definitions =====
 
 " ===== search settings =====
@@ -246,8 +246,8 @@ let g:airline_mode_map = {
 let g:bufferline_echo = 0
 
 " ===== fugitive =====
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>gc :Gcommit -a<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit -a<cr>
 
 " ===== ctrlp =====
 if executable('ag')
@@ -262,7 +262,7 @@ if executable('ag')
 endif
 
 " ===== fzf =====
-nmap <C-f> :FZF
+nnoremap <C-f> :FZF
 
 " ===== ranger =====
 "nmap <leader>r :Ranger<CR>
