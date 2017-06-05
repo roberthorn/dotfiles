@@ -10,7 +10,6 @@ set showcmd
 set showmode
 set visualbell
 set autoread
-"set guicursor=n-v:hor50-blinkwait300-blinkon100-blinkoff100,i-c:ver25-blinkwait300-blinkon100-blinkoff100
 set mouse=a
 
 set path+=**
@@ -26,14 +25,8 @@ set list listchars=tab:»·,trail:· " trailing whitespace
 
 " ===== remappings =====
 let mapleader=","
-set pastetoggle=<F2>
-" ===== end remappings =====
 
-" ===== alias =====
-nnoremap <leader>w :w<CR>
-nnoremap :Q :q!
-" ===== end alias =====
-
+" shortcut for dropping into a code block and auto-indenting
 inoremap <C-e> <CR><Esc>O
 
 " ===== splits =====
@@ -42,32 +35,27 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-=> <C-W>=
-" ===== end splits =====
+
+set splitbelow
+set splitright
 
 " ===== buffers =====
 nnoremap <leader>l :bn<cr>
 nnoremap <leader>k :bp<cr>
 nnoremap <leader>q :bwipeout<cr>
 
-set splitbelow
-set splitright
-" ===== end buffers =====
-
 " ===== definitions =====
 " open definition in vertical window
 nnoremap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" ===== end definitions =====
 
 " ===== search settings =====
 set incsearch
 set hlsearch
-" ===== end search =====
 
 " ===== swaps =====
 set noswapfile
 set nobackup
 set nowb
-" ===== end swaps =====
 
 " ===== indents =====
 set autoindent
@@ -80,28 +68,20 @@ set tabstop=4
 " ===== folding =====
 set foldmethod=indent
 
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
-"autocmd Filetype python setlocal ts=4 sts=4 sw=4
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 filetype plugin indent on
-" ===== end indents =====
 
 " ===== wraps =====
 set nowrap
 set linebreak
 
 command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
-" ===== end wraps =====
 
 " ===== scrolling =====
 set scrolloff=8
 set sidescrolloff=10
 set sidescroll=1
-" ===== end scrolling =====
 
 " ===== clipboard =====
-" TODO clipboard tool needed
 set clipboard=unnamed
 
 " jump to last know cursor location
@@ -170,42 +150,6 @@ set termguicolors
 set background=dark
 colorscheme hybrid
 
-" ===== neomake =====
-autocmd! BufWritePost * Neomake
-" ===== end neomake =====
-
-" ===== go =====
-let g:go_fmt_command = "goimports"
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-
-au FileType go map <C-\> :vsp <CR>:GoDef<CR>
-
 " ===== tagbar =====
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
@@ -265,19 +209,65 @@ endif
 nnoremap <C-f> :FZF
 
 " ===== ranger =====
-"nmap <leader>r :Ranger<CR>
+nnoremap <leader>r :Ranger<CR>
 
 " ===== gitgutter =====
 hi clear SignColumn
 
+" ===== neomake =====
+autocmd! BufWritePost * Neomake
+
+" =====================
+" ===== Languages =====
+" =====================
+
+" ===== Go =====
+let g:go_fmt_command = "goimports"
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
+au FileType go map <C-\> :vsp <CR>:GoDef<CR>
+
+" ===== Markup =====
 " Align GitHub Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-" Lisp
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" ===== Lisp =====
 augroup Lisp
 	au FileType lisp let b:delimitMate_quotes = "\""
 	au FileType lisp setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
-" JavaScript
+" ===== JavaScript =====
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd BufWritePre *.js Neoformat
+
+" ===== Python =====
+"autocmd Filetype python setlocal ts=4 sts=4 sw=4
