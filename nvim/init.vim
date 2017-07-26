@@ -257,7 +257,8 @@ au FileType go map <C-\> :vsp <CR>:GoDef<CR>
 " Align GitHub Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+au Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+au Filetype json setlocal ts=2 sts=2 sw=2 expandtab
 
 " ===== Lisp =====
 augroup Lisp
@@ -266,9 +267,17 @@ augroup Lisp
 augroup END
 
 " ===== JavaScript =====
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype json setlocal ts=2 sts=2 sw=2 expandtab
-autocmd BufWritePre *.js Neoformat
+augroup Javascript
+	au Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
+	au Filetype javascript setlocal formatprg=prettier\ --single-quote
+	let g:neoformat_try_formatprg = 1
+augroup END
+
+augroup HTML
+	au Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+au BufWritePre *.js Neoformat
 
 " ===== Python =====
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4
