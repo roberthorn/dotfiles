@@ -1,5 +1,5 @@
 setopt prompt_subst
-setopt vi
+#setopt vi
 
 p_arrow() {
   echo " %F{yellow}»%f"
