@@ -1,2 +1,3 @@
-export VISUAL=nvim
-export EDITOR=$VISUAL
+#export VISUAL=nvim
+#export EDITOR=nvim
+# these causes weird issues with tmux...
