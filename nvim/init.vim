@@ -207,8 +207,12 @@ endif
 
 " ===== fzf =====
 nnoremap <C-f> :FZF
+nnoremap ; :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>t :Tags<CR>
 
 " ===== ranger =====
+let g:ranger_map_keys = 0
 nnoremap <leader>r :Ranger<CR>
 
 " ===== gitgutter =====
@@ -270,6 +274,7 @@ augroup END
 augroup Javascript
 	au Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
 	au Filetype javascript setlocal formatprg=prettier\ --single-quote
+	au Filetype javascript.jsx setlocal formatprg=prettier\ --single-quote
 	let g:neoformat_try_formatprg = 1
 augroup END
 
@@ -277,7 +282,8 @@ augroup HTML
 	au Filetype html setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
-au BufWritePre *.js Neoformat
+"au BufWritePre *.js Neoformat
+"au BufWritePre *.jsx Neoformat
 
 " ===== Python =====
 "autocmd Filetype python setlocal ts=4 sts=4 sw=4
