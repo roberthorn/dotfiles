@@ -103,7 +103,6 @@ Plug 'majutsushi/tagbar'
 Plug 'roberthorn/vim-hybrid'
 
 Plug 'tpope/vim-markdown'
-Plug 'vimwiki/vimwiki'
 
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
@@ -112,7 +111,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
@@ -121,6 +120,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
