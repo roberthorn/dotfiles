@@ -111,9 +111,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
@@ -154,7 +154,7 @@ colorscheme hybrid
 
 " ===== tagbar =====
 nnoremap <silent> <leader>tb :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
 
 " ===== airline =====
 set laststatus=2
@@ -262,6 +262,21 @@ au FileType go map <C-\> :vsp <CR>:GoDef<CR>
 " ===== Markup =====
 " Align GitHub Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" add support for markdown files in tagbar
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : 'markdown2ctags',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 
 au Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 au Filetype json setlocal ts=2 sts=2 sw=2 expandtab
