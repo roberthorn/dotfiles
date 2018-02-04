@@ -12,6 +12,7 @@ alias ll='ls -la'
 alias r='ranger'
 
 alias wiki="vim ~/vimwiki/index.wiki"
+alias notes="vim ~/.notes"
 
 alias pang='ping -c 3 www.google.com'
 
@@ -23,6 +24,6 @@ alias gi='go install'
 alias gir='go install && `basename $PWD`'
 
 # rustup
-alias rustup='curl -sSf https://static.rust-lang.org/rustup.sh | sh'
+#alias rustup='curl -sSf https://static.rust-lang.org/rustup.sh | sh'
 
 
