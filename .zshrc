@@ -28,7 +28,6 @@ sources=(
   'alias'
   'completions'
   'editor'
-  'path'
   'prompt'
 )
 

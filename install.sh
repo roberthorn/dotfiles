@@ -1,7 +1,4 @@
 #!/bin/bash
-# TODO install zsh
-# TODO install git
-# TODO install vim/nvim
 # TODO clean up, follow some guidelines
 # http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming
 
@@ -18,19 +15,19 @@ p_is_linux() {
 
 # link config files
 if [[ ! -e ~/.zshrc ]]; then
-  ln -sf $REPOPATH/.zshrc ~/.zshrc
+  ln -sf $REPOPATH/.zshrc $HOME/.zshrc
+fi
+if [[ ! -e ~/.zshenv ]]; then
+  ln -sf $REPOPATH/.zshenv $HOME/.zshenv
 fi
 if [[ ! -e ~/.gitconfig ]]; then
-  ln -sf $REPOPATH/.gitconfig ~/.gitconfig
+  ln -sf $REPOPATH/.gitconfig $HOME/.gitconfig
 fi
 if [[ ! -e ~/.ctags ]]; then
-  ln -sf $REPOPATH/.ctags ~/.ctags
+  ln -sf $REPOPATH/.ctags $HOME/.ctags
 fi
-
-if p_is_osx; then
-  echo "Installing Homebrew packages"
-  brew update brew tap homebrew/bundle
-  brew bundle
+if [[ ! -e ~/.tmux.conf ]]; then
+  ln -sf $REPOPATH/.tmux.conf $HOME/.tmux.conf
 fi
 
 # neovim configuration

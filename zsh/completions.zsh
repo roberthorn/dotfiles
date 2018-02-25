@@ -34,3 +34,5 @@ zstyle ':completion::complete:*' cache-path $DOTSPATH/zsh/zsh/cache
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 zstyle '*' single-ignored complete
+
+export CDPATH=$CDPATH:$GOPATH/src
