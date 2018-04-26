@@ -27,7 +27,7 @@ set list listchars=tab:»·,trail:· " trailing whitespace
 let mapleader=","
 
 " shortcut for dropping into a code block and auto-indenting
-inoremap <C-e> <CR><Esc>O
+inoremap <C-]> <CR><Esc>O
 
 " ===== splits =====
 nnoremap <C-J> <C-W><C-J>
