@@ -113,6 +113,7 @@ Plug 'majutsushi/tagbar'
 Plug 'roberthorn/vim-hybrid'
 
 Plug 'tpope/vim-markdown'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
@@ -197,6 +198,10 @@ let g:airline_mode_map = {
 	\ 'S'  : 'S',
 	\ '' : 'S',
 	\ }
+
+" ===== vimwiki =====
+let g:vimwiki_list = [{'path': '~/.notebook/',
+	\ 'syntax': 'markdown', 'ext': '.md'}]
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
