@@ -4,10 +4,16 @@
 [core]
 	editor = nvim
 [alias]
+	c = commit
+	p = push
+	pu = pull
+	f = fetch
 	br = branch
-	branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
 	co = checkout
-	last = log -1 HEAD
+	s = status -s
+	st = status
+	branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+	graph = log --decorate --graph --oneline
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-	st = status -s
+	last = log -1 HEAD
 	unstage = reset HEAD --
