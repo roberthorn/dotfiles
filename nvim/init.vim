@@ -75,6 +75,7 @@ set nowrap
 set linebreak
 
 command! -nargs=* Wrap set wrap linebreak nolist textwidth=0 wrapmargin=0
+command! -nargs=* NoWrap set nowrap
 
 " ===== scrolling =====
 set scrolloff=8
@@ -112,9 +113,6 @@ Plug 'majutsushi/tagbar'
 
 Plug 'roberthorn/vim-hybrid'
 
-Plug 'tpope/vim-markdown'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -127,11 +125,14 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'justinmk/vim-sneak'
+"Plug 'justinmk/vim-sneak'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
+
+"Plug 'tpope/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -155,6 +156,7 @@ call plug#end()
 
 " ===== easymotion =====
 map <Space> <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-s2)
 
 let g:deoplete#enable_at_startup = 1
 
@@ -199,9 +201,8 @@ let g:airline_mode_map = {
 	\ '' : 'S',
 	\ }
 
-" ===== vimwiki =====
-let g:vimwiki_list = [{'path': '~/.notebook/',
-	\ 'syntax': 'markdown', 'ext': '.md'}]
+" ===== vim-markdown
+let g:markdown_enable_spell_checking = 0
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
@@ -224,7 +225,7 @@ endif
 
 " ===== fzf =====
 nnoremap <C-f> :FZF
-nnoremap ; :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
@@ -276,10 +277,15 @@ au FileType go map <C-\> :vsp <CR>:GoDef<CR>
 
 " ===== Markup =====
 " Align GitHub Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+augroup markdown
+	au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+	au FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
 
 au Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 au Filetype json setlocal ts=2 sts=2 sw=2 expandtab
+
+au Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " ===== Lisp =====
 augroup Lisp
@@ -297,6 +303,10 @@ augroup END
 
 augroup HTML
 	au Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+augroup Protobuf
+	au Filetype proto setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 "au BufWritePre *.js Neoformat
