@@ -24,8 +24,9 @@ syntax on
 
 set list listchars=tab:»·,trail:· " trailing whitespace
 
-" ===== remappings =====
-let mapleader=","
+" ===== leader =====
+nnoremap <Space> <Nop>
+let mapleader=" "
 
 " shortcut for dropping into a code block and auto-indenting
 inoremap <C-]> <CR><Esc>O
@@ -163,7 +164,7 @@ call plug#end()
 " ===== end plugins =====
 
 " ===== easymotion =====
-map <Space> <Plug>(easymotion-prefix)
+map <leader> <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 
 " ===== deoplete, neopairs, neosnippet =====
@@ -222,6 +223,7 @@ let g:airline_mode_map = {
 
 " ===== vim-markdown
 let g:markdown_enable_spell_checking = 0
+let g:markdown_mapping_switch_status = "<Leader>x"
 
 " ===== bufferline =====
 let g:bufferline_echo = 0
