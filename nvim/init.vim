@@ -146,22 +146,17 @@ Plug 'godoctor/godoctor.vim'
 
 Plug 'mattn/emmet-vim'
 
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'elzr/vim-json'
-Plug 'moll/vim-node'
-
-Plug 'HerringtonDarkholme/yats.vim'
-" TODO slow exit with plugin enabled?
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
 Plug 'wlangstroth/vim-racket'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 " ===== end plugins =====
+
+" ===== polyglot =====
+let g:polyglot_disabled = ['markdown']
 
 " ===== easymotion =====
 map <leader> <Plug>(easymotion-prefix)
