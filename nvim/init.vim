@@ -11,6 +11,7 @@ set showmode
 set visualbell
 set autoread
 set mouse=a
+set hidden
 
 set path+=**
 set wildmenu
@@ -40,9 +41,11 @@ set splitbelow
 set splitright
 
 " ===== buffers =====
-nnoremap <leader>l :bn<cr>
-nnoremap <leader>k :bp<cr>
-nnoremap <leader>q :bwipeout<cr>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+"nnoremap <leader>q :bwipeout<cr>
 
 " ===== definitions =====
 " open definition in vertical window
@@ -120,7 +123,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
@@ -149,6 +151,12 @@ Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
 
+Plug 'HerringtonDarkholme/yats.vim'
+" TODO slow exit with plugin enabled?
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+Plug 'wlangstroth/vim-racket'
+
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
@@ -163,8 +171,8 @@ let g:deoplete#enable_at_startup = 1
 let g:neopairs#enable = 1
 call deoplete#custom#source('_', 'converters',
     \ ['converter_auto_paren'])
-call deoplete#custom#option('omni_patterns',
-    \ { 'go': '[^. *\t]\.\w*' })
+"call deoplete#custom#option('omni_patterns',
+"    \ { 'go': '[^. *\t]\.\w*' })
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -256,6 +264,7 @@ autocmd! BufWritePost * Neomake
 
 " ===== Go =====
 let g:go_fmt_command = "goimports"
+let g:go_def_mode='gopls'
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -312,8 +321,16 @@ augroup Javascript
     let g:neoformat_try_formatprg = 1
 augroup END
 
+augroup TypeScript
+	au Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
+	au Filetype typescript setlocal formatprg=prettier\ --single-quote
+	au Filetype typescript.tsx setlocal formatprg=prettier\ --single-quote
+	let g:neoformat_try_formatprg = 1
+augroup END
+
 augroup HTML
     au Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+	au Filetype css setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 augroup Protobuf
