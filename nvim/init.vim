@@ -48,6 +48,10 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 "nnoremap <leader>q :bwipeout<cr>
 
+" ===== files =====
+" easy expansion for active file dir
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " ===== definitions =====
 " open definition in vertical window
 nnoremap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
