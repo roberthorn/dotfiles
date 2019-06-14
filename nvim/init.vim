@@ -139,8 +139,8 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'gabrielelana/vim-markdown'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neopairs.vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
@@ -166,13 +166,20 @@ let g:polyglot_disabled = ['markdown']
 map <leader> <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-s2)
 
-" ===== deoplete, neopairs, neosnippet =====
-let g:deoplete#enable_at_startup = 1
-let g:neopairs#enable = 1
-call deoplete#custom#source('_', 'converters',
-    \ ['converter_auto_paren'])
-"call deoplete#custom#option('omni_patterns',
-"    \ { 'go': '[^. *\t]\.\w*' })
+" ===== coc.nvim =====
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
