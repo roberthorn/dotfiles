@@ -2,10 +2,18 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
-if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-  compinit
+if [[ `uname` == 'Linux' ]]; then
+	if [ $(date +'%j') != $(/usr/bin/stat -c '%Sm' --printf='%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+		compinit
+	else
+		compinit -C
+	fi
 else
-  compinit -C
+	if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+		compinit
+	else
+		compinit -C
+	fi
 fi
 
 # GO
