@@ -41,13 +41,6 @@ nnoremap <C-=> <C-W>=
 set splitbelow
 set splitright
 
-" ===== buffers =====
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
-"nnoremap <leader>q :bwipeout<cr>
-
 " ===== files =====
 " easy expansion for active file dir
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -135,6 +128,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'gabrielelana/vim-markdown'
