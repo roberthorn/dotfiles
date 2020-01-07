@@ -117,7 +117,7 @@ Plug 'roberthorn/vim-hybrid'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
@@ -246,7 +246,7 @@ endif
 
 " ===== fzf =====
 nnoremap <C-f> :FZF
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>; :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 
