@@ -130,6 +130,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
 
 Plug 'gabrielelana/vim-markdown'
 
@@ -142,9 +144,11 @@ Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go'
 Plug 'godoctor/godoctor.vim'
 
-Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
 
-Plug 'wlangstroth/vim-racket'
+Plug 'mattn/emmet-vim'
 
 Plug 'rust-lang/rust.vim'
 
