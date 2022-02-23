@@ -46,3 +46,11 @@ set.background = 'dark'
 vim.cmd('colorscheme hybrid')
 -- TODO: this is a patch to fix the colorscheme, should be fixed in the theme
 vim.cmd('highlight SignColumn guibg=darkcolumn')
+
+-- jump to last know cursor location
+vim.cmd [[
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+]]

@@ -38,8 +38,13 @@ return packer.startup(function()
 
 	use { 'kyazdani42/nvim-tree.lua', config = require('plugin.nvim-tree') }
 
-	-- Syntax
+	-- Treesitter and TS-plugins
 	use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate", config = require('plugin.treesitter') }
+	use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+	use { 'windwp/nvim-ts-autotag' }
+	use { 'RRethy/nvim-treesitter-endwise' }
+	use { 'romgrk/nvim-treesitter-context', config = require('plugin.ts-context') }
+	use { 'windwp/nvim-autopairs', config = require('plugin.nvim-autopairs') }
 
 	-- Search
 	use { 'junegunn/fzf', requires = { '/usr/local/opt/fzf' }, config = require('plugin.fzf') }
