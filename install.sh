@@ -23,22 +23,13 @@ fi
 if [[ ! -e ~/.gitconfig ]]; then
   ln -sf $REPOPATH/.gitconfig $HOME/.gitconfig
 fi
-if [[ ! -e ~/.ctags ]]; then
-  ln -sf $REPOPATH/.ctags $HOME/.ctags
-fi
 if [[ ! -e ~/.tmux.conf ]]; then
   ln -sf $REPOPATH/.tmux.conf $HOME/.tmux.conf
 fi
 
 # neovim configuration
-if [[ ! -d ~/.nvim ]]; then
-  mkdir ~/.nvim
-  mkdir ~/.nvim/autoload
-  mkdir ~/.nvim/bundle
-  mkdir ~/.nvim/colors
+rm -rf ~/.config/nvim
+cp -r ./nvim ~/.config/nvim
 
-  curl -fLo ~/.nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  ln -sf ~/.nvim/ ~/.config/nvim
-fi
-ln -sf $REPOPATH/nvim/init.vim ~/.nvim/init.vim
-
+# run :PackerSync
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
