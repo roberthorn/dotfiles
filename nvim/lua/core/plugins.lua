@@ -54,6 +54,7 @@ return packer.startup(function()
   use 'b3nj5m1n/kommentary'
   use 'tpope/vim-surround'
   use 'ggandor/lightspeed.nvim'
+  use { 'karb94/neoscroll.nvim', config = require('plugin.neoscroll') }
 
   -- Git
   use 'tpope/vim-fugitive'
