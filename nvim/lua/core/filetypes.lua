@@ -7,5 +7,6 @@ vim.cmd[[
   au Filetype proto setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype typescript setlocal ts=2 sts=2 sw=2 expandtab
+  au Filetype typescriptreact setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 ]]
