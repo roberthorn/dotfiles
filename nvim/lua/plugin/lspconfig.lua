@@ -26,7 +26,7 @@ return function()
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', noremap_silent_opts)
   end
 
-  local capabilites = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilites = require('cmp_nvim_lsp').default_capabilities()
 
   local config = {
     ["ansiblels"] = {
