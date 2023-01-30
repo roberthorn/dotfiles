@@ -10,7 +10,7 @@ end
 
 local packer = require('packer')
 
-return packer.startup(function()
+return packer.startup({function()
   -- Packer
   use 'wbthomason/packer.nvim'
 
@@ -21,7 +21,8 @@ return packer.startup(function()
 
   -- LSP, completions, & snippets
   use { 'neovim/nvim-lspconfig', config = require('plugin.lspconfig'), requires = {
-    { 'williamboman/nvim-lsp-installer' }
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
   }}
 
   use { 'hrsh7th/nvim-cmp', config = require('plugin.nvim-cmp'), requires = {
@@ -61,10 +62,16 @@ return packer.startup(function()
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = require('plugin.gitsigns') }
 
   -- Go
-  use 'fatih/vim-go'
-  use 'golang/vscode-go'
+  use { 'fatih/vim-go', config = require('plugin.go') }
 
   if packer_bootstrap then
     packer.sync()
   end
-end)
+end,
+config = {
+  display = {
+    open_fn = function ()
+      return require('packer.util').float({ border = 'single' })
+    end
+  }
+}})

@@ -1,5 +1,16 @@
 return function()
-  local lsp_installer = require("nvim-lsp-installer")
+  require("mason").setup {
+    ui = {
+      icons = {
+        package_installed = "✓"
+      }
+    }
+  }
+  require("mason-lspconfig").setup {
+    ensure_installed = { "sumneko_lua" }
+  }
+
+  local lspconfig = require("lspconfig")
 
   local noremap_silent_opts = { noremap=true, silent=true }
   vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', noremap_silent_opts)
@@ -54,6 +65,7 @@ return function()
           workspace = {
             -- Make the server aware of Neovim runtime files
             library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
           }
         }
       }
@@ -61,25 +73,12 @@ return function()
     ["tsserver"] = {
       capabilites = capabilites,
       on_attach = on_attach,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+      filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     }
   }
 
-  -- ensure servers are installed
-  for name, _ in pairs(config) do
-    local server_is_found, server = lsp_installer.get_server(name)
-    if server_is_found and not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
-    end
+  for server, c in pairs(config) do
+    lspconfig[server].setup(c)
   end
-
-  lsp_installer.on_server_ready(function(server)
-    local opts = config[server.name]
-    if (opts == nil) then
-      server:setup({})
-    else
-      server:setup(opts)
-    end
-  end)
 end
+
