@@ -2,6 +2,17 @@
 [[ ${ZPROFRC:-0} -eq 0 ]] || zmodload zsh/zprof
 alias zprofrc="ZPROFRC=1 zsh"
 
+typeset -gU cdpath fpath mailpath path
+
+path=(
+  ~/bin
+  /usr/local/{bin,sbin}
+  /opt/homebrew/{bin,sbin}
+  $path
+)
+
+export PATH
+
 setopt hist_ignore_space
 setopt append_history
 setopt hist_ignore_dups
