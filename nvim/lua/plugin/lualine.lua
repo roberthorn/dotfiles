@@ -1,6 +1,6 @@
 return function()
   require('lualine').setup({
-    options = {theme = 'onedark'},
+    options = {theme = 'catppuccin'},
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },

@@ -35,17 +35,13 @@ set.sidescroll = 1
 -- clipboard
 set.clipboard = 'unnamed'
 
-vim.cmd [[
-  syntax on
-]]
+vim.cmd('syntax on')
 
 if(vim.fn.has('termguicolors' == 1)) then
   set.termguicolors = true
 end
 set.background = 'dark'
-vim.cmd('colorscheme hybrid')
--- TODO: this is a patch to fix the colorscheme, should be fixed in the theme
-vim.cmd('highlight SignColumn guibg=darkcolumn')
+vim.cmd('colorscheme catppuccin-frappe')
 
 -- jump to last know cursor location
 vim.cmd [[

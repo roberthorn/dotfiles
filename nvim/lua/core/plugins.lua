@@ -17,7 +17,7 @@ return packer.startup({function()
   -- Appearance
   use 'kyazdani42/nvim-web-devicons'
   use { 'nvim-lualine/lualine.nvim', config = require('plugin.lualine') }
-  use 'roberthorn/vim-hybrid'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- LSP, completions, & snippets
   use { 'neovim/nvim-lspconfig', config = require('plugin.lspconfig'), requires = {
