@@ -7,7 +7,7 @@ return function()
     }
   }
   require("mason-lspconfig").setup {
-    ensure_installed = { "sumneko_lua" }
+    ensure_installed = { "lua_ls" }
   }
 
   local lspconfig = require("lspconfig")
@@ -54,7 +54,7 @@ return function()
       on_attach = on_attach,
       capabilites = capabilites
     },
-    ["sumneko_lua"] = {
+    ["lua_ls"] = {
       on_attach = on_attach,
       capabilites = capabilites,
       settings = {
