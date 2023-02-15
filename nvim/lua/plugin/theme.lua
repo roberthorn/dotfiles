@@ -1,6 +1,6 @@
 return function ()
   require("catppuccin").setup({
-    flavour = "frappe",
+    flavour = "macchiato",
     integrations = {
       cmp = true,
       gitsigns = true,
