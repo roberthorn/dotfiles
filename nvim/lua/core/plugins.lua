@@ -23,6 +23,7 @@ return packer.startup({function()
   use { 'neovim/nvim-lspconfig', config = require('plugin.lspconfig'), requires = {
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
+    { 'folke/neodev.nvim' },
   }}
 
   use { 'hrsh7th/nvim-cmp', config = require('plugin.nvim-cmp'), requires = {
@@ -65,6 +66,7 @@ return packer.startup({function()
   use { 'fatih/vim-go', config = require('plugin.go') }
 
   use { 'mickael-menu/zk-nvim', config = require('plugin.zk') }
+
 
   if packer_bootstrap then
     packer.sync()

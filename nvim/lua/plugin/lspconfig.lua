@@ -1,22 +1,24 @@
 return function()
-  require("mason").setup {
+  require('mason').setup {
     ui = {
       icons = {
         package_installed = "✓"
       }
     }
   }
-  require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls" }
+  require('mason-lspconfig').setup {
+    ensure_installed = { 'lua_ls' }
   }
 
-  local lspconfig = require("lspconfig")
+  require('neodev').setup()
+
+  local lspconfig = require('lspconfig')
 
   local noremap_silent_opts = { noremap=true, silent=true }
-  vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', noremap_silent_opts)
-  vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', noremap_silent_opts)
-  vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', noremap_silent_opts)
-  vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', noremap_silent_opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap_silent_opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap_silent_opts)
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, noremap_silent_opts)
+  vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, noremap_silent_opts)
 
   local on_attach = function(_, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -37,24 +39,25 @@ return function()
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', noremap_silent_opts)
   end
 
-  local capabilites = require('cmp_nvim_lsp').default_capabilities()
+  local capabilites = vim.lsp.protocol.make_client_capabilities()
+  capabilites = require('cmp_nvim_lsp').default_capabilities(capabilites)
 
   local config = {
-    ["ansiblels"] = {
+    ['ansiblels'] = {
       on_attach = on_attach
     },
-    ["eslint"] = {
+    ['eslint'] = {
       on_attach = on_attach
     },
-    ["gopls"] = {
+    ['gopls'] = {
       on_attach = on_attach,
       capabilites = capabilites
     },
-    ["html"] = {
+    ['html'] = {
       on_attach = on_attach,
       capabilites = capabilites
     },
-    ["lua_ls"] = {
+    ['lua_ls'] = {
       on_attach = on_attach,
       capabilites = capabilites,
       settings = {
@@ -64,16 +67,16 @@ return function()
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
+            library = vim.api.nvim_get_runtime_file('', true),
             checkThirdParty = false,
           }
         }
       }
     },
-    ["tsserver"] = {
+    ['tsserver'] = {
       capabilites = capabilites,
       on_attach = on_attach,
-      filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
+      filetypes = { 'javascript', 'typescript', 'typescriptreact', 'typescript.tsx' }
     }
   }
 
