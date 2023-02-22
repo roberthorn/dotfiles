@@ -9,6 +9,7 @@ return function()
       'python',
       'ruby',
       'rust',
+      'sql',
       'vim',
       'yaml'
     },
