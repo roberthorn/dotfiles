@@ -1,13 +1,17 @@
 return function()
   require('lualine').setup({
-    options = {theme = 'catppuccin'},
+    options = {
+      icons_enabled = true,
+      theme = 'catppuccin',
+      globalstatus = true
+    },
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'buffers' },
+      lualine_c = { 'filename' },
       lualine_x = { 'encoding', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
+      lualine_y = { 'location' },
+      lualine_z = { 'progress' }
     },
     inactive_sections = {
       lualine_a = {},
