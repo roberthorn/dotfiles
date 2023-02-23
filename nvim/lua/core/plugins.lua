@@ -65,9 +65,6 @@ return packer.startup({function()
   -- Go
   use { 'fatih/vim-go', config = require('plugin.go') }
 
-  use { 'mickael-menu/zk-nvim', config = require('plugin.zk') }
-
-
   if packer_bootstrap then
     packer.sync()
   end
