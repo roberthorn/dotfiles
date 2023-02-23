@@ -6,6 +6,7 @@ return function()
       'go', 'gomod',
       'help',
       'lua',
+      'markdown', 'markdown_inline',
       'python',
       'ruby',
       'rust',
@@ -21,7 +22,8 @@ return function()
     },
     highlight = {
       enable = true,
-      disable = {}
+      disable = {},
+      additional_vim_regex_highlighting = { "markdown" }
     },
     indent = {
       enable = false,
