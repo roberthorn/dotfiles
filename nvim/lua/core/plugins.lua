@@ -63,6 +63,8 @@ return packer.startup({function()
   use 'tpope/vim-fugitive'
   use { 'lewis6991/gitsigns.nvim', config = require('plugin.gitsigns') }
 
+  use { 'olimorris/persisted.nvim', config = require('plugin.sessions') }
+
   -- Go
   use { 'fatih/vim-go', config = require('plugin.go') }
 
