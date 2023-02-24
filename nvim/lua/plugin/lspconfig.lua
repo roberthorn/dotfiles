@@ -1,19 +1,4 @@
 return function()
-  require('mason').setup {
-    ui = {
-      icons = {
-        package_installed = "✓"
-      }
-    }
-  }
-  require('mason-lspconfig').setup {
-    ensure_installed = { 'lua_ls' }
-  }
-
-  require('neodev').setup()
-
-  local lspconfig = require('lspconfig')
-
   local noremap_silent_opts = { noremap=true, silent=true }
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, noremap_silent_opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, noremap_silent_opts)
@@ -21,43 +6,60 @@ return function()
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, noremap_silent_opts)
 
   local on_attach = function(_, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function nmap(keys, func, desc)
+      if desc then
+        desc = 'LSP: ' .. desc
+      end
+
+      vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc})
+    end
+
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', noremap_silent_opts)
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', noremap_silent_opts)
+    nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    nmap('gR', vim.lsp.buf.references, '[G]oto [R]eferences')
+    nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+    nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+    -- see `:help K`
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+    nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    nmap('<leader>wl', function () print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end , '[W]orkspace [L]ist Folders')
+    nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    nmap('<leader>f', vim.lsp.buf.formatting, '[F]ormat')
   end
+
+  require('neodev').setup()
+
+  local lspconfig = require('lspconfig')
 
   local capabilites = vim.lsp.protocol.make_client_capabilities()
   capabilites = require('cmp_nvim_lsp').default_capabilities(capabilites)
 
-  local config = {
-    ['ansiblels'] = {
+  local servers = {
+    ansiblels = {
       on_attach = on_attach
     },
-    ['eslint'] = {
+    eslint = {
       on_attach = on_attach
     },
-    ['gopls'] = {
+    gopls = {
       on_attach = on_attach,
       capabilites = capabilites
     },
-    ['html'] = {
+    html = {
       on_attach = on_attach,
       capabilites = capabilites
     },
-    ['lua_ls'] = {
+    lua_ls = {
       on_attach = on_attach,
       capabilites = capabilites,
       settings = {
@@ -73,14 +75,25 @@ return function()
         }
       }
     },
-    ['tsserver'] = {
+    tsserver = {
       capabilites = capabilites,
       on_attach = on_attach,
       filetypes = { 'javascript', 'typescript', 'typescriptreact', 'typescript.tsx' }
     }
   }
 
-  for server, c in pairs(config) do
+  require('mason').setup {
+    ui = {
+      icons = {
+        package_installed = "✓"
+      }
+    }
+  }
+  require('mason-lspconfig').setup {
+    ensure_installed = vim.tbl_keys(servers)
+  }
+
+  for server, c in pairs(servers) do
     lspconfig[server].setup(c)
   end
 end
