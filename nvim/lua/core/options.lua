@@ -12,8 +12,11 @@ set.list = true
 set.listchars = {tab = '»·', trail = '·'}
 set.splitbelow = true
 set.splitright = true
-set.wrap = false
+set.wrap = true
 set.linebreak = true
+set.breakindent = true
+set.ignorecase = true
+set.smartcase = true
 
 -- indents
 set.smartindent = true
