@@ -32,11 +32,9 @@ return packer.startup({function()
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
     { 'onsails/lspkind-nvim' },
-  }}
-
-  use { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp', requires = {
-    { 'hrsh7th/vim-vsnip' },
-    { 'hrsh7th/vim-vsnip-integ' },
+    { "L3MON4D3/LuaSnip", run = "make install_jsregexp", requires = {
+      { 'rafamadriz/friendly-snippets' },
+    }}
   }}
 
   use { 'kyazdani42/nvim-tree.lua', config = require('plugin.nvim-tree') }
