@@ -15,9 +15,14 @@ return packer.startup({function()
   use 'wbthomason/packer.nvim'
 
   -- Appearance
-  use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
+  use { 'nvim-tree/nvim-tree.lua', config = require('plugin.nvim-tree') }
   use { 'nvim-lualine/lualine.nvim', config = require('plugin.lualine') }
-  use {'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons', config = require('plugin.bufferline') }
+  use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons', config = require('plugin.bufferline') }
+  use { 'utilyre/barbecue.nvim', config = function () require('barbecue').setup {} end, requires = {
+    { 'SmiteshP/nvim-navic' },
+    { 'nvim-tree/nvim-web-devicons' },
+  }}
   use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- LSP, completions, & snippets
@@ -36,8 +41,6 @@ return packer.startup({function()
       { 'rafamadriz/friendly-snippets' },
     }}
   }}
-
-  use { 'kyazdani42/nvim-tree.lua', config = require('plugin.nvim-tree') }
 
   -- Treesitter and TS-plugins
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate", config = require('plugin.treesitter') }
