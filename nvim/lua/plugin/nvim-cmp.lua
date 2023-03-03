@@ -1,14 +1,65 @@
 return function()
+  local signs = {
+    { name = 'DiagnosticSignError', text = '' },
+    { name = 'DiagnosticSignWarn', text = '' },
+    { name = 'DiagnosticSignHint', text = '' },
+    { name = 'DiagnosticSignInfo', text = '' },
+  }
+
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+  end
+
+  vim.diagnostic.config({
+    virtual_text = false,
+    signs = {
+      active = signs,
+    },
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+      -- focusable = false,
+      style = 'minimal',
+      border = 'rounded',
+      source = 'always',
+      header = '',
+      prefix = '',
+    },
+  })
+
   local cmp = require('cmp')
   local luasnip = require('luasnip')
   local lspkind = require('lspkind')
 
   luasnip.config.setup {}
-  require("luasnip.loaders.from_vscode").lazy_load()
+  require('luasnip.loaders.from_vscode').lazy_load()
 
-  vim.o.completeopt = 'menuone,noselect'
+  vim.o.completeopt = 'menu,menuone,noselect'
+
+  local function border(hl_name)
+    return {
+      { '╭', hl_name },
+      { '─', hl_name },
+      { '╮', hl_name },
+      { '│', hl_name },
+      { '╯', hl_name },
+      { '─', hl_name },
+      { '╰', hl_name },
+      { '│', hl_name },
+    }
+  end
 
   cmp.setup({
+    window = {
+      completion = {
+        border = border 'CmpBorder',
+        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
+      },
+      documentation = {
+        border = border 'CmpDocBorder',
+      },
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
