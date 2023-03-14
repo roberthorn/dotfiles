@@ -2,7 +2,8 @@ return function ()
   vim.o.sessionoptions = 'buffers,curdir,folds,globals,tabpages,winpos,winsize'
 
   require('persisted').setup {
-    autoload = true,
+    autosave = false,
+    autoload = false,
     should_autosave = function ()
       if vim.bo.filetype == 'gitcommit' then
         return false
