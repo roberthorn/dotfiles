@@ -20,7 +20,7 @@ return packer.startup({function()
   use { 'nvim-lualine/lualine.nvim', config = require('plugin.lualine') }
   use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons', config = require('plugin.bufferline') }
   use { 'utilyre/barbecue.nvim', config = function () require('barbecue').setup {} end, requires = {
-    { 'SmiteshP/nvim-navic' },
+    { 'SmiteshP/nvim-navic', commit = '59b997feb5915b8dbcbe5f34b07b12de332ea9de' },
     { 'nvim-tree/nvim-web-devicons' },
   }}
   use { 'catppuccin/nvim', as = 'catppuccin' }
@@ -37,9 +37,9 @@ return packer.startup({function()
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
     { 'onsails/lspkind-nvim' },
-    { "L3MON4D3/LuaSnip", run = "make install_jsregexp", requires = {
-      { 'rafamadriz/friendly-snippets' },
-    }}
+    { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'rafamadriz/friendly-snippets' },
   }}
 
   -- Treesitter and TS-plugins
