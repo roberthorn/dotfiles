@@ -20,7 +20,7 @@ return packer.startup({function()
   use { 'nvim-lualine/lualine.nvim', config = require('plugin.lualine') }
   use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons', config = require('plugin.bufferline') }
   use { 'utilyre/barbecue.nvim', config = function () require('barbecue').setup {} end, requires = {
-    { 'SmiteshP/nvim-navic', commit = '59b997feb5915b8dbcbe5f34b07b12de332ea9de' },
+    { 'SmiteshP/nvim-navic' },
     { 'nvim-tree/nvim-web-devicons' },
   }}
   use { 'catppuccin/nvim', as = 'catppuccin' }
