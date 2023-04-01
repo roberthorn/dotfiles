@@ -31,6 +31,7 @@ return packer.startup({function()
     { 'williamboman/mason-lspconfig.nvim' },
     { 'folke/neodev.nvim' },
   }}
+  use { 'simrat39/symbols-outline.nvim', config = function () require('symbols-outline').setup {} end }
 
   use { 'hrsh7th/nvim-cmp', config = require('plugin.nvim-cmp'), requires = {
     { 'hrsh7th/cmp-nvim-lsp' },
