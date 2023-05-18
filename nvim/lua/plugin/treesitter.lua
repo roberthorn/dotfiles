@@ -4,6 +4,7 @@ return function()
       'c', 'cpp',
       'css', 'html', 'json', 'javascript', 'tsx', 'typescript',
       'go', 'gomod',
+      'hcl', 'terraform',
       'help',
       'lua',
       'markdown', 'markdown_inline',

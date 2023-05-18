@@ -75,6 +75,10 @@ return function()
         }
       }
     },
+    terraformls = {
+      capabilites = capabilites,
+      on_attach = on_attach,
+    },
     tsserver = {
       capabilites = capabilites,
       on_attach = on_attach,
