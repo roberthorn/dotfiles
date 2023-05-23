@@ -20,13 +20,8 @@ return function()
 
   require('telescope').load_extension('fzf')
 
-  vim.api.nvim_set_keymap('n', '<Leader>;', ':Telescope buffers<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope find_files<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<Leader>g', ':Telescope live_grep<cr>', { noremap = true })
-
+  vim.keymap.set('n', '<leader>;', require('telescope.builtin').buffers, { desc = '[;] Find existing buffer' })
   vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-  vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
   vim.keymap.set('n', '<leader>/', function()
     -- You can pass additional configuration to telescope to change theme, layout, etc.
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
