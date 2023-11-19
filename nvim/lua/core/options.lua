@@ -43,8 +43,6 @@ vim.cmd.syntax('on')
 if vim.fn.has('termguicolors' == 1) then
   set.termguicolors = true
 end
-set.background = 'dark'
-vim.cmd.colorscheme('catppuccin-macchiato')
 
 -- jump to last know cursor location
 vim.cmd [[
