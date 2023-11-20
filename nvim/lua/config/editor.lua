@@ -266,5 +266,5 @@ return {
     lazy = false,
     version = '*',
     opts = {},
-  }
+  },
 }
