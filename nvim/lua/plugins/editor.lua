@@ -9,7 +9,9 @@ return {
     config = function()
       require("nvim-tree").setup {}
 
-      vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<cr>", { noremap = true })
+      local nmap = require("rh.keymap").nmap
+
+      nmap { "<C-n>", require("nvim-tree.api").tree.toggle }
     end,
   },
 

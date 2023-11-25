@@ -22,44 +22,46 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
+      local nmap = require("rh.keymap").nmap
       local noremap_silent_opts = { noremap = true, silent = true }
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, noremap_silent_opts)
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, noremap_silent_opts)
-      vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, noremap_silent_opts)
-      vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, noremap_silent_opts)
+
+      nmap { "[d", vim.diagnostic.goto_prev, noremap_silent_opts }
+      nmap { "]d", vim.diagnostic.goto_next, noremap_silent_opts }
+      nmap { "<space>e", vim.diagnostic.open_float, noremap_silent_opts }
+      nmap { "<space>q", vim.diagnostic.setloclist, noremap_silent_opts }
 
       local on_attach = function(_, bufnr)
-        local function nmap(keys, func, desc)
+        local function buf_nmap(keys, func, desc)
           if desc then
             desc = "LSP: " .. desc
           end
 
-          vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+          nmap { keys, func, { buffer = bufnr, desc = desc } }
         end
 
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-        nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-        nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-        nmap("gR", vim.lsp.buf.references, "[G]oto [R]eferences")
-        nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-        nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-        nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-        nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+        buf_nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        buf_nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+        buf_nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        buf_nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+        buf_nmap("gR", vim.lsp.buf.references, "[G]oto [R]eferences")
+        buf_nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+        buf_nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+        buf_nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+        buf_nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
         -- see `:help K`
-        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+        buf_nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        buf_nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
-        nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-        nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-        nmap("<leader>wl", function()
+        buf_nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+        buf_nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+        buf_nmap("<leader>wl", function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, "[W]orkspace [L]ist Folders")
-        nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-        nmap("<leader>f", vim.lsp.buf.formatting, "[F]ormat")
+        buf_nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+        buf_nmap("<leader>f", vim.lsp.buf.formatting, "[F]ormat")
       end
 
       require("neodev").setup()
