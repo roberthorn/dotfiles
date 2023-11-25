@@ -44,7 +44,7 @@ if vim.fn.has("termguicolors" == 1) then
   set.termguicolors = true
 end
 
--- jump to last know cursor location
+-- jump to last known cursor location
 vim.cmd [[
   autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |

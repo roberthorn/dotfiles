@@ -1,3 +1,6 @@
+-- TODO:
+--   - use /ftplugin
+--   - convert to lua
 vim.cmd [[
   au Filetype css setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype html setlocal ts=2 sts=2 sw=2 expandtab

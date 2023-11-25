@@ -1,7 +1,3 @@
--- leader
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
-vim.g.mapleader = " "
-
 vim.keymap.set("n", "<C-k>", ":wincmd k<cr>", { silent = true })
 vim.keymap.set("n", "<C-j>", ":wincmd j<cr>", { silent = true })
 vim.keymap.set("n", "<C-h>", ":wincmd h<cr>", { silent = true })
