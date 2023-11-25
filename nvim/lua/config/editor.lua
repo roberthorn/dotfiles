@@ -237,9 +237,10 @@ return {
   {
     "ThePrimeagen/harpoon",
     version = "*",
-    opts = {},
     config = function()
       require("telescope").load_extension "harpoon"
+
+      require("harpoon").setup {}
 
       vim.keymap.set("n", "<M-h><M-m>", require("harpoon.mark").add_file)
       vim.keymap.set("n", "<M-h><M-l>", require("harpoon.ui").toggle_quick_menu)
