@@ -1,24 +1,33 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
-    version = '*',
+    "nvim-treesitter/nvim-treesitter",
+    version = "*",
     lazy = false,
-    build = ':TSUpdate',
+    build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        'c', 'cpp',
-        'css', 'html', 'json', 'javascript', 'tsx', 'typescript',
-        'go', 'gomod',
-        'hcl', 'terraform',
-        'vimdoc',
-        'lua',
-        'markdown', 'markdown_inline',
-        'python',
-        'ruby',
-        'rust',
-        'sql',
-        'vim',
-        'yaml'
+        "c",
+        "cpp",
+        "css",
+        "html",
+        "json",
+        "javascript",
+        "tsx",
+        "typescript",
+        "go",
+        "gomod",
+        "hcl",
+        "terraform",
+        "vimdoc",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "ruby",
+        "rust",
+        "sql",
+        "vim",
+        "yaml",
       },
       autotag = {
         enable = true,
@@ -29,19 +38,19 @@ return {
       highlight = {
         enable = true,
         disable = {},
-        additional_vim_regex_highlighting = { "markdown" }
+        additional_vim_regex_highlighting = { "markdown" },
       },
       indent = {
         enable = false,
-        disable = {}
+        disable = {},
       },
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<c-space>',
-          node_incremental = '<c-space>',
-          scope_incremental = '<c-s>',
-          node_decremental = '<M-space>',
+          init_selection = "<c-space>",
+          node_incremental = "<c-space>",
+          scope_incremental = "<c-s>",
+          node_decremental = "<M-space>",
         },
       },
       textobjects = {
@@ -49,12 +58,12 @@ return {
           enable = true,
           lookahead = true,
           keymaps = {
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
       },
@@ -62,77 +71,77 @@ return {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          ["]m"] = "@function.outer",
+          ["]]"] = "@class.outer",
         },
         goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer",
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
         },
         goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer",
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ["<leader>a"] = "@parameter.inner",
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ["<leader>A"] = "@parameter.inner",
         },
       },
     },
     config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
 
-      local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       parser_config.gotmpl = {
         install_info = {
           url = "https://github.com/ngalaiko/tree-sitter-go-template",
-          files = {"src/parser.c"}
+          files = { "src/parser.c" },
         },
         filetype = "gotmpl",
-        used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
+        used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
       }
     end,
   },
 
   {
-    'nvim-treesitter/nvim-treesitter-textobjects'
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
 
   {
-    'windwp/nvim-ts-autotag'
+    "windwp/nvim-ts-autotag",
   },
 
   {
-    'RRethy/nvim-treesitter-endwise'
+    "RRethy/nvim-treesitter-endwise",
   },
 
   {
-    'romgrk/nvim-treesitter-context',
+    "romgrk/nvim-treesitter-context",
     opts = {
       enable = true,
       throttle = true,
       max_lines = 0,
       patterns = {
         default = {
-          'class',
-          'function',
-          'method',
+          "class",
+          "function",
+          "method",
         },
       },
     },
   },
 
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     opts = {},
   },
 }

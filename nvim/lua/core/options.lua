@@ -1,15 +1,15 @@
 local set = vim.opt
 
-set.encoding = 'utf-8'
-set.path:append('**')
+set.encoding = "utf-8"
+set.path:append "**"
 set.number = true
 set.relativenumber = true
 set.autoread = true
-set.mouse = 'a'
+set.mouse = "a"
 set.history = 1000
-set.backspace = {'indent', 'eol', 'start'}
+set.backspace = { "indent", "eol", "start" }
 set.list = true
-set.listchars = {tab = '»·', trail = '·'}
+set.listchars = { tab = "»·", trail = "·" }
 set.splitbelow = true
 set.splitright = true
 set.wrap = true
@@ -23,7 +23,7 @@ set.smartindent = true
 set.shiftwidth = 4
 set.tabstop = 4
 set.softtabstop = 4
-set.foldmethod = 'indent'
+set.foldmethod = "indent"
 
 -- swaps/backups
 set.swapfile = false
@@ -36,11 +36,11 @@ set.sidescrolloff = 10
 set.sidescroll = 1
 
 -- clipboard
-set.clipboard = 'unnamed'
+set.clipboard = "unnamed"
 
-vim.cmd.syntax('on')
+vim.cmd.syntax "on"
 
-if vim.fn.has('termguicolors' == 1) then
+if vim.fn.has("termguicolors" == 1) then
   set.termguicolors = true
 end
 

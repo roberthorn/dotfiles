@@ -1,55 +1,55 @@
 return {
   {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
     lazy = false,
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require('nvim-tree').setup {}
+      require("nvim-tree").setup {}
 
-      vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<cr>', { noremap = true})
+      vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<cr>", { noremap = true })
     end,
   },
 
   {
-    'nvim-lualine/lualine.nvim',
-    version = '*',
+    "nvim-lualine/lualine.nvim",
+    version = "*",
     lazy = false,
     dependencies = {
-      'catppuccin',
+      "catppuccin",
     },
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin',
-        globalstatus = true
+        theme = "catppuccin",
+        globalstatus = true,
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'filetype' },
-        lualine_y = { 'location' },
-        lualine_z = { 'progress' }
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "encoding", "filetype" },
+        lualine_y = { "location" },
+        lualine_z = { "progress" },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {},
-      extensions = {}
+      extensions = {},
     },
   },
 
   {
-    'akinsho/bufferline.nvim',
-    version = '*',
+    "akinsho/bufferline.nvim",
+    version = "*",
     lazy = false,
     opts = {
       highlights = {
@@ -84,7 +84,7 @@ return {
         persist_buffer_sort = true,
         enforce_regular_tabs = true,
         diagnostics_indicator = function(count, level)
-          local icon = level:match("error") and "" or ""
+          local icon = level:match "error" and "" or ""
           return icon .. count
         end,
       },
@@ -93,43 +93,43 @@ return {
 
   -- completions
   {
-    'L3MON4D3/LuaSnip',
-    version = 'v2.*',
-    build = 'make install_jsregexp',
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
     dependencies = {
-      'rafamadriz/friendly-snippets',
+      "rafamadriz/friendly-snippets",
       config = function()
-        require('luasnip.loaders.from_vscode').lazy_load()
-        require('luasnip.loaders.from_snipmate').lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_snipmate").lazy_load()
       end,
     },
   },
 
   {
-    'hrsh7th/nvim-cmp',
-    version = '*',
+    "hrsh7th/nvim-cmp",
+    version = "*",
     lazy = false,
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'onsails/lspkind-nvim',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "onsails/lspkind-nvim",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       local signs = {
-        { name = 'DiagnosticSignError', text = '' },
-        { name = 'DiagnosticSignWarn', text = '' },
-        { name = 'DiagnosticSignHint', text = '' },
-        { name = 'DiagnosticSignInfo', text = '' },
+        { name = "DiagnosticSignError", text = "" },
+        { name = "DiagnosticSignWarn", text = "" },
+        { name = "DiagnosticSignHint", text = "" },
+        { name = "DiagnosticSignInfo", text = "" },
       }
 
       for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
       end
 
-      vim.diagnostic.config({
+      vim.diagnostic.config {
         virtual_text = false,
         signs = {
           active = signs,
@@ -139,32 +139,32 @@ return {
         severity_sort = true,
         float = {
           -- focusable = false,
-          style = 'minimal',
-          border = 'rounded',
-          source = 'always',
-          header = '',
-          prefix = '',
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
         },
-      })
+      }
 
-      local cmp = require('cmp')
-      local luasnip = require('luasnip')
-      local lspkind = require('lspkind')
+      local cmp = require "cmp"
+      local luasnip = require "luasnip"
+      local lspkind = require "lspkind"
 
       luasnip.config.setup {}
       -- require('luasnip.loaders.from_vscode').lazy_load()
 
-      vim.o.completeopt = 'menu,menuone,noselect'
+      vim.o.completeopt = "menu,menuone,noselect"
 
-      cmp.setup({
+      cmp.setup {
         window = {
           completion = {
-            border = 'rounded',
-            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
           },
           documentation = {
-            border = 'rounded',
-            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
+            border = "rounded",
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
           },
         },
         snippet = {
@@ -173,15 +173,15 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert {
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete {},
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm {
+          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete {},
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
-          ['<Tab>'] = cmp.mapping(function(fallback)
+          ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -189,8 +189,8 @@ return {
             else
               fallback()
             end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
@@ -198,72 +198,72 @@ return {
             else
               fallback()
             end
-          end, { 'i', 's' }),
+          end, { "i", "s" }),
         },
         sources = {
-          { name = 'nvim_lsp', priority = 1000 },
-          { name = 'luasnip', priority = 750 },
-          { name = 'buffer', priority = 500 },
-          { name = 'path', priority = 250 }
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         },
         formatting = {
-          format = lspkind.cmp_format({ mode = 'symbol_text', max_width = 50, ellipsis_char = '...' })
-        }
-      })
+          format = lspkind.cmp_format { mode = "symbol_text", max_width = 50, ellipsis_char = "..." },
+        },
+      }
 
       -- auto-add () for functions/methods
-      cmp.event:on(
-        'confirm_done',
-        require('nvim-autopairs.completion.cmp').on_confirm_done()
-      )
+      cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
     end,
   },
 
   {
-    'ThePrimeagen/harpoon',
-    version = '*',
+    "ThePrimeagen/harpoon",
+    version = "*",
     opts = {},
-    config = function ()
-      require('telescope').load_extension('harpoon')
-    end
+    config = function()
+      require("telescope").load_extension "harpoon"
+
+      vim.keymap.set("n", "<M-h><M-m>", require("harpoon.mark").add_file)
+      vim.keymap.set("n", "<M-h><M-l>", require("harpoon.ui").toggle_quick_menu)
+    end,
   },
 
   {
-    'ggandor/lightspeed.nvim',
-    version = '*',
+    "ggandor/lightspeed.nvim",
+    version = "*",
   },
 
   {
-    'kylechui/nvim-surround',
-    version = '*',
+    "kylechui/nvim-surround",
+    version = "*",
     opts = {},
   },
 
   {
-    'utilyre/barbecue.nvim',
+    "utilyre/barbecue.nvim",
     lazy = false,
     dependencies = {
-      'SmiteshP/nvim-navic'
+      "SmiteshP/nvim-navic",
     },
     opts = {},
   },
 
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     opts = {},
     lazy = false,
   },
 
   {
-    'declancm/cinnamon.nvim',
-    version = '*',
+    "declancm/cinnamon.nvim",
+    version = "*",
     opts = {},
   },
 
   {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     lazy = false,
-    version = '*',
+    version = "*",
     opts = {},
   },
 }

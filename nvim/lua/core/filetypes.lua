@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
   au Filetype css setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype html setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab

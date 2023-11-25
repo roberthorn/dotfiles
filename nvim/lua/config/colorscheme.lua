@@ -1,11 +1,11 @@
 return {
   {
-    'catppuccin/nvim',
+    "catppuccin/nvim",
     lazy = true,
-    name = 'catppuccin',
+    name = "catppuccin",
     config = function()
-      require('catppuccin').setup {
-        flavour = 'macchiato',
+      require("catppuccin").setup {
+        flavour = "macchiato",
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -14,8 +14,8 @@ return {
           lightspeed = true,
         },
       }
-      vim.opt.background = 'dark'
-      vim.cmd.colorscheme('catppuccin')
+      vim.opt.background = "dark"
+      vim.cmd.colorscheme "catppuccin"
     end,
   },
 }
