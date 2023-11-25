@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 
 require "core.filetypes"
 
+-- disable builtins
+require "rh.disable_builtin"
+
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -19,14 +22,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load lazy
-require("lazy").setup {
-  spec = {
-    { import = "config" },
-    { import = "lang" },
-  },
+require("lazy").setup("plugins", {
   defaults = {
     lazy = false,
     version = "*",
   },
   install = { colorscheme = { "catppuccin" } },
-}
+})
