@@ -9,7 +9,7 @@ set.mouse = "a"
 set.history = 1000
 set.backspace = { "indent", "eol", "start" }
 set.list = true
-set.listchars = { tab = "»·", trail = "·" }
+--set.listchars = { tab = "»·", trail = "·" }
 set.splitbelow = true
 set.splitright = true
 set.wrap = true
@@ -45,6 +45,7 @@ if vim.fn.has("termguicolors" == 1) then
 end
 
 -- jump to last known cursor location
+-- TODO: convert to lua
 vim.cmd [[
   autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |

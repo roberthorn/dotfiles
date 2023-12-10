@@ -280,4 +280,16 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = false,
+    main = "ibl",
+    config = function()
+      local config = require("ibl.config").default_config
+      config.indent.tab_char = config.indent.char
+      config.scope.enabled = false
+      require("ibl").setup(config)
+    end,
+  },
 }
