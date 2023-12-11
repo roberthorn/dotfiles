@@ -41,5 +41,7 @@ fi
 
 zplug load
 
+[[ -e ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # done profiling
 [[ ${ZPROFRC:-0} -eq 0 ]] || { unset ZPROFRC && zprof }
