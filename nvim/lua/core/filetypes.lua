@@ -7,6 +7,7 @@ vim.cmd [[
   au Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype json setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype lua setlocal ts=2 sts=2 sw=2 expandtab
+  au Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype proto setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
   au Filetype sql setlocal ts=2 sts=2 sw=2 expandtab
