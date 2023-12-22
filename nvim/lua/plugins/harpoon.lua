@@ -1,21 +1,34 @@
 return {
   {
     "ThePrimeagen/harpoon",
-    version = "*",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local nmap = require("rh.keymap").nmap
       require("telescope").load_extension "harpoon"
 
-      require("harpoon").setup {}
+      local harpoon = require "harpoon"
 
-      nmap { "<leader>hm", require("harpoon.mark").add_file }
-      nmap { "<leader>hl", require("harpoon.ui").toggle_quick_menu }
+      harpoon:setup()
+
+      nmap {
+        "<leader>hm",
+        function()
+          harpoon:list():append()
+        end,
+      }
+      nmap {
+        "<leader>hl",
+        function()
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+      }
 
       for i = 1, 5 do
         nmap {
           string.format("<leader>%s", i),
           function()
-            require("harpoon.ui").nav_file(i)
+            harpoon:list():select(i)
           end,
         }
       end
