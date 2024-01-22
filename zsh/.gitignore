@@ -1,2 +1,5 @@
 .zsh_history
 .zsh_sessions
+.zcompdump
+*.zwc
+*.zwc.old
