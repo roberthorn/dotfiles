@@ -1,1 +1,1 @@
-. "$HOME/.cargo/env"
+[[ -e $HOME/.cargo/env ]] && source $HOME/.cargo/env
