@@ -262,11 +262,11 @@ return {
     lazy = false,
   },
 
-  {
+  --[[ {
     "declancm/cinnamon.nvim",
     version = "*",
     opts = {},
-  },
+  }, ]]
 
   {
     "lewis6991/gitsigns.nvim",
