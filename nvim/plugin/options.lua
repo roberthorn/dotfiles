@@ -17,6 +17,7 @@ set.linebreak = true
 set.breakindent = true
 set.ignorecase = true
 set.smartcase = true
+set.conceallevel = 1
 
 -- indents
 set.smartindent = true
