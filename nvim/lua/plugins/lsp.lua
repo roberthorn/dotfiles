@@ -112,6 +112,10 @@ return {
             },
           },
         },
+        marksman = {
+          on_attach = on_attach,
+          capabilites = capabilites,
+        },
         tsserver = {
           capabilites = capabilites,
           on_attach = on_attach,
