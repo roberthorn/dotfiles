@@ -3,6 +3,7 @@
 	email = rehorn09@gmail.com
 [core]
 	editor = nvim
+	excludesfile = /Users/robert/.config/git/ignore
 [alias]
 	c = commit
 	p = push

@@ -1,8 +1,8 @@
 CWD = $(shell pwd)
 
-.PHONY: nvim tmux zsh
+.PHONY: nvim tmux zsh direnv git
 
-all: nvim tmux zsh
+all: nvim tmux zsh direnv git
 
 kitty:
 	rm -rf ~/.config/kitty/kitty.conf
@@ -19,3 +19,11 @@ tmux:
 zsh:
 	rm -rf ~/.config/zsh
 	ln -s $(CWD)/zsh ~/.config/zsh
+
+direnv:
+	rm -rf ~/.config/direnv
+	ln -s $(CWD)/direnv ~/.config/direnv
+
+git:
+	rm -rf ~/.config/git
+	ln -s $(CWD)/git ~/.config/git
