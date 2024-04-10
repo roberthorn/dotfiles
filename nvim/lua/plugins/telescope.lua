@@ -15,6 +15,9 @@ return {
           },
         },
         extensions = {
+          file_browser = {
+            hidden = { file_browser = true, folder_browser = false },
+          },
           fzf = {
             fuzzy = true,
             override_generic_sorter = true,
@@ -25,6 +28,8 @@ return {
       }
 
       require("telescope").load_extension "fzf"
+      require("telescope").load_extension "file_browser"
+      require("telescope").load_extension "ui-select"
 
       local nmap = require("rh.keymap").nmap
 
@@ -51,14 +56,23 @@ return {
       nmap { "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" } }
       nmap { "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" } }
       nmap { "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" } }
+
+      -- file browser
+      nmap { "<leader>fe", require("telescope").extensions.file_browser.file_browser, { desc = "[F]ile [E]xplorer" } }
+      nmap {
+        "<leader>fb",
+        function()
+          require("telescope").extensions.file_browser.file_browser { select_buffer = true, path = "%:p:h" }
+        end,
+        { desc = "[F]ile Explorer ([B]uffer)" },
+      }
     end,
   },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
     build = "make",
   },
+  "nvim-telescope/telescope-file-browser.nvim",
+  "nvim-telescope/telescope-ui-select.nvim",
 }
