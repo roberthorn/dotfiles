@@ -237,8 +237,16 @@ return {
   },
 
   {
-    "ggandor/lightspeed.nvim",
+    "ggandor/leap.nvim",
     version = "*",
+    opts = {
+      highlight_unlabeled_phase_one_targets = true,
+    },
+    config = function(_, opts)
+      local leap = require "leap"
+      leap.setup(opts)
+      leap.create_default_mappings()
+    end,
   },
 
   {
