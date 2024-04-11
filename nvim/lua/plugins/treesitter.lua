@@ -112,19 +112,6 @@ return {
       }
     end,
   },
-
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
-
-  {
-    "windwp/nvim-ts-autotag",
-  },
-
-  {
-    "RRethy/nvim-treesitter-endwise",
-  },
-
   {
     "romgrk/nvim-treesitter-context",
     opts = {
@@ -140,9 +127,8 @@ return {
       },
     },
   },
-
-  {
-    "windwp/nvim-autopairs",
-    opts = {},
-  },
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  "windwp/nvim-ts-autotag",
+  "RRethy/nvim-treesitter-endwise",
+  "windwp/nvim-autopairs",
 }
