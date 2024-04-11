@@ -9,7 +9,7 @@ return {
 
       local harpoon = require "harpoon"
 
-      harpoon:setup()
+      harpoon:setup {}
 
       nmap {
         "<leader>hm",
