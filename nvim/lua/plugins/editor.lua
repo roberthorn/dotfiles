@@ -252,7 +252,12 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*",
-    opts = {},
+    opts = {
+      keymaps = {
+        visual = "ys",
+        visual_line = "yS",
+      },
+    },
   },
 
   {
