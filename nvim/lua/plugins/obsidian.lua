@@ -13,6 +13,7 @@ return {
           path = "~/Notes",
         },
       },
+      notes_subdir = "_inbox",
       new_notes_location = "notes_subdir",
       daily_notes = {
         folder = "Daily",
