@@ -254,8 +254,9 @@ return {
     version = "*",
     opts = {
       keymaps = {
-        visual = "ys",
-        visual_line = "yS",
+        -- TODO: set these to something else, these cause an annoying delay
+        -- visual = "ys",
+        -- visual_line = "yS",
       },
     },
   },
