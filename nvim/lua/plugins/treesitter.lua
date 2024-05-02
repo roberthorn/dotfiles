@@ -17,6 +17,7 @@ return {
         "typescript",
         "go",
         "gomod",
+        "graphql",
         "hcl",
         "terraform",
         "vimdoc",
