@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup {
-        flavour = "macchiato",
+        flavour = "mocha",
         integrations = {
           cmp = true,
           gitsigns = true,
