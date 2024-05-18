@@ -3,8 +3,6 @@
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 
-require "core.filetypes"
-
 -- disable builtins
 require "rh.disable_builtin"
 
