@@ -51,8 +51,16 @@ return {
 
   {
     "akinsho/bufferline.nvim",
+    -- * is broken in 0.10, see https://github.com/akinsho/bufferline.nvim/issues/903
+    -- version = "*",
     commit = "73540cb",
     lazy = false,
+    keys = {
+      { "<leader>bp", "<CMD>BufferLineTogglePin<CR>", desc = "Toggle Buffer Pin" },
+      { "<leader>bP", "<CMD>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },
+      { "[b", "<cmd>BufferLineCyclePrev<CR>", desc = "Prev Buffer" },
+      { "]b", "<cmd>BufferLineCycleNext<CR>", desc = "Next Buffer" },
+    },
     opts = {
       highlights = {
         fill = {},
