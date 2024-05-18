@@ -51,7 +51,7 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    version = "*",
+    commit = "73540cb",
     lazy = false,
     opts = {
       highlights = {

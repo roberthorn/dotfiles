@@ -61,7 +61,9 @@ return {
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, "[W]orkspace [L]ist Folders")
         buf_nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-        buf_nmap("<leader>f", vim.lsp.buf.formatting, "[F]ormat")
+        buf_nmap("<leader>f", function()
+          vim.lsp.buf.format { async = true }
+        end, "[F]ormat")
       end
 
       require("neodev").setup()
@@ -72,12 +74,8 @@ return {
       capabilites = require("cmp_nvim_lsp").default_capabilities(capabilites)
 
       local servers = {
-        eslint = {
-          on_attach = on_attach,
-        },
+        eslint = true,
         gopls = {
-          on_attach = on_attach,
-          capabilites = capabilites,
           root_dir = function(fname)
             local util = require "lspconfig.util"
             -- see: https://github.com/neovim/nvim-lspconfig/issues/804
@@ -92,13 +90,8 @@ return {
             return util.root_pattern "go.work"(fname) or util.root_pattern("go.mod", ".git")(fname)
           end,
         },
-        html = {
-          on_attach = on_attach,
-          capabilites = capabilites,
-        },
+        html = true,
         lua_ls = {
-          on_attach = on_attach,
-          capabilites = capabilites,
           settings = {
             Lua = {
               diagnostics = {
@@ -112,13 +105,8 @@ return {
             },
           },
         },
-        marksman = {
-          on_attach = on_attach,
-          capabilites = capabilites,
-        },
+        marksman = true,
         tsserver = {
-          capabilites = capabilites,
-          on_attach = on_attach,
           filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
         },
       }
@@ -134,8 +122,25 @@ return {
         ensure_installed = vim.tbl_keys(servers),
       }
 
-      for server, c in pairs(servers) do
-        lspconfig[server].setup(c)
+      local setup_server = function(server, config)
+        if not config then
+          return
+        end
+
+        if type(config) ~= "table" then
+          config = {}
+        end
+
+        config = vim.tbl_deep_extend("force", {
+          capabilites = capabilites,
+          on_attach = on_attach,
+        }, config)
+
+        lspconfig[server].setup(config)
+      end
+
+      for server, config in pairs(servers) do
+        setup_server(server, config)
       end
     end,
   },
