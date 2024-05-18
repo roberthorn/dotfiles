@@ -39,7 +39,7 @@ return {
           nmap { keys, func, { buffer = bufnr, desc = desc } }
         end
 
-        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+        vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
         buf_nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
         buf_nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
