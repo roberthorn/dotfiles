@@ -10,7 +10,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require "custom.lsp"
+      require "config.lsp"
     end,
   },
 

@@ -20,7 +20,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- load lazy
-require("lazy").setup("custom.plugins", {
+require("lazy").setup("plugins", {
   change_detection = {
     notify = false,
   },

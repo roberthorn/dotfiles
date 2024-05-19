@@ -13,7 +13,7 @@ return {
       "rafamadriz/friendly-snippets",
     },
     config = function()
-      require "custom.completions"
+      require "config.completions"
     end,
   },
 }
