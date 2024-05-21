@@ -1,5 +1,4 @@
 -- leader, should be as early as possible for mappings to use correct leader
--- TODO: use localleader
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 
