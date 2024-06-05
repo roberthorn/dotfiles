@@ -54,3 +54,9 @@ vim.cmd [[
     \   exe "normal g`\"" |
     \ endif
 ]]
+
+-- automatically resize
+-- TODO: convert to lua
+vim.cmd [[
+  autocmd VimResized * :wincmd =
+]]
