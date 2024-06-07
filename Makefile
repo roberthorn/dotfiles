@@ -1,8 +1,8 @@
 CWD = $(shell pwd)
 
-.PHONY: nvim tmux zsh direnv git kitty hammerspoon
+.PHONY: nvim tmux zsh direnv git kitty hammerspoon aerospace
 
-all: nvim tmux zsh direnv git kitty hammerspoon
+all: nvim tmux zsh direnv git kitty hammerspoon aerospace
 
 kitty:
 	rm -rf ~/.config/kitty
@@ -31,3 +31,7 @@ git:
 hammerspoon:
 	rm -rf ~/.hammerspoon
 	ln -s $(CWD)/hammerspoon ~/.hammerspoon
+	
+aerospace:
+	rm -rf ~/.config/aerospace
+	ln -s $(CWD)/aerospace ~/.config/aerospace
