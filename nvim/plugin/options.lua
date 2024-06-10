@@ -45,18 +45,3 @@ vim.cmd.syntax "on"
 if vim.fn.has("termguicolors" == 1) then
   set.termguicolors = true
 end
-
--- jump to last known cursor location
--- TODO: convert to lua
-vim.cmd [[
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-]]
-
--- automatically resize
--- TODO: convert to lua
-vim.cmd [[
-  autocmd VimResized * :wincmd =
-]]
