@@ -13,9 +13,4 @@ return {
       require "config.lsp"
     end,
   },
-
-  {
-    "simrat39/symbols-outline.nvim",
-    opts = {},
-  },
 }

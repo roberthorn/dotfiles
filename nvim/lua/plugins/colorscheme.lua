@@ -9,9 +9,11 @@ return {
         integrations = {
           cmp = true,
           gitsigns = true,
+          lightspeed = true,
           nvimtree = true,
           telescope = true,
-          lightspeed = true,
+          treesitter = true,
+          treesitter_context = true,
         },
       }
       vim.opt.background = "dark"
