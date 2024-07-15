@@ -24,4 +24,4 @@ end
 hyper.bindApp({}, "b", "Firefox")
 hyper.bindApp({}, "f", "Finder")
 hyper.bindApp({}, "n", "Obsidian")
-hyper.bindApp({}, "t", "Kitty")
+hyper.bindApp({}, "t", "WezTerm")
