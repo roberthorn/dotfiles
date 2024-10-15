@@ -82,7 +82,7 @@ local servers = {
     },
   },
   marksman = true,
-  tsserver = {
+  ts_ls = {
     filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
   },
 }
