@@ -42,8 +42,6 @@ local on_attach = function(_, bufnr)
   end, "[F]ormat")
 end
 
-require("neodev").setup()
-
 local lspconfig = require "lspconfig"
 
 local capabilites = vim.lsp.protocol.make_client_capabilities()

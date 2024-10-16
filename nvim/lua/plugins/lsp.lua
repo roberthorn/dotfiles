@@ -5,12 +5,16 @@ return {
     version = false,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "folke/neodev.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
       require "config.lsp"
     end,
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {},
   },
 }
