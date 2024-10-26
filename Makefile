@@ -25,8 +25,12 @@ nvim:
 	rm -rf ~/.config/nvim
 	ln -s $(CWD)/nvim ~/.config/nvim
 
+.PHONY: install-tpm
+install-tpm:
+	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
 .PHONY: tmux
-tmux:
+tmux: install-tpm
 	rm -rf ~/.config/tmux
 	ln -s $(CWD)/tmux ~/.config/tmux
 
