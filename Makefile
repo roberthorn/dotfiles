@@ -25,14 +25,19 @@ nvim:
 	rm -rf ~/.config/nvim
 	ln -s $(CWD)/nvim ~/.config/nvim
 
-.PHONY: install-tpm
-install-tpm:
-	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+.PHONY: scripts
+scripts:
+	rm -rf ~/.bin
+	ln -s $(CWD)/bin ~/.bin
 
 .PHONY: tmux
-tmux: install-tpm
+tmux: tpm-install
 	rm -rf ~/.config/tmux
 	ln -s $(CWD)/tmux ~/.config/tmux
+
+.PHONY: tpm-install
+tpm-install:
+	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 .PHONY: wezterm
 wezterm:
