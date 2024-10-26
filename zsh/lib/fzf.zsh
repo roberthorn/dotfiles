@@ -1,4 +1,5 @@
-export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+#export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_DEFAULT_COMMAND="fd --type file --hidden --no-ignore"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # catppuccin theme
