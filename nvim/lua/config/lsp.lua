@@ -80,6 +80,7 @@ local servers = {
     },
   },
   marksman = true,
+  pyright = true,
   ts_ls = {
     filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
   },
