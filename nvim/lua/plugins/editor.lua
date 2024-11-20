@@ -199,4 +199,27 @@ return {
     },
     config = true,
   },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {},
+    keys = {
+      {
+        "<leader>gB",
+        function()
+          Snacks.gitbrowse()
+        end,
+        desc = "Git Browse",
+      },
+      {
+        "<leader>gg",
+        function()
+          Snacks.lazygit()
+        end,
+        desc = "Lazygit",
+      },
+    },
+  },
 }
