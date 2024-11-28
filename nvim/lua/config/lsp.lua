@@ -48,6 +48,7 @@ local capabilites = vim.lsp.protocol.make_client_capabilities()
 capabilites = require("cmp_nvim_lsp").default_capabilities(capabilites)
 
 local servers = {
+  cssls = true,
   eslint = true,
   gopls = {
     root_dir = function(fname)
