@@ -45,7 +45,7 @@ end
 local lspconfig = require "lspconfig"
 
 local capabilites = vim.lsp.protocol.make_client_capabilities()
-capabilites = require("cmp_nvim_lsp").default_capabilities(capabilites)
+capabilites = require("blink.cmp").get_lsp_capabilities(capabilites)
 
 local servers = {
   cssls = true,
