@@ -1,9 +1,10 @@
+# vim: set ft=gitconfig:
 [user]
 	name = Robert Horn
 	email = rehorn09@gmail.com
 [core]
 	editor = nvim
-	excludesfile = /Users/robert/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
 [alias]
 	c = commit
 	p = push
@@ -20,3 +21,5 @@
 	unstage = reset HEAD --
 [safe]
 	directory = /usr/local/go
+[include]
+	path = ~/.config/git/config.local
