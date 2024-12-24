@@ -44,11 +44,14 @@ end
 
 local lspconfig = require "lspconfig"
 
-local capabilites = vim.lsp.protocol.make_client_capabilities()
-capabilites = require("blink.cmp").get_lsp_capabilities(capabilites)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 local servers = {
-  cssls = true,
+  cssls = {
+    filetypes = { "css", "less", "scss" },
+  },
   eslint = true,
   gopls = {
     root_dir = function(fname)
@@ -108,7 +111,7 @@ local setup_server = function(server, config)
   end
 
   config = vim.tbl_deep_extend("force", {
-    capabilites = capabilites,
+    capabilities = capabilities,
     on_attach = on_attach,
   }, config)
 
