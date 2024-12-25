@@ -1,7 +1,10 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = "rafamadriz/friendly-snippets",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "onsails/lspkind.nvim",
+    },
     opts = {
       keymap = { preset = "default" },
       appearance = {
@@ -17,8 +20,25 @@ return {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
+          },
+        },
+      },
+      completion = {
+        menu = {
+          draw = {
+            columns = {
+              { "label", "label_description", gap = 1 },
+              { "kind_icon", "kind" },
+            },
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  local kind = require("lspkind").symbol_map[ctx.kind] or ""
+                  return kind .. " "
+                end,
+              },
+            },
           },
         },
       },
