@@ -1,0 +1,4 @@
+font-family = "Hack Nerd Font Mono"
+macos-titlebar-proxy-icon = hidden
+theme = catppuccin-mocha
+shell-integration-features = no-title

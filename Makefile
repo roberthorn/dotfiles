@@ -10,6 +10,11 @@ direnv:
 	rm -rf ~/.config/direnv
 	ln -s $(CWD)/direnv ~/.config/direnv
 
+.PHONY: ghostty
+ghostty:
+	rm -rf ~/.config/ghostty
+	ln -s $(CWD)/ghostty ~/.config/ghostty
+
 .PHONY: git
 git:
 	rm -rf ~/.config/git
