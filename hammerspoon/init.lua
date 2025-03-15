@@ -21,7 +21,7 @@ hyper.bindApp = function(mods, key, app)
   hyper:bind(mods, key, fn)
 end
 
-hyper.bindApp({}, "b", "Zen")
+hyper.bindApp({}, "b", "Firefox")
 hyper.bindApp({}, "f", "Finder")
 hyper.bindApp({}, "n", "Obsidian")
 hyper.bindApp({}, "t", "Ghostty")
