@@ -53,7 +53,6 @@ return {
     "akinsho/bufferline.nvim",
     -- * is broken in 0.10, see https://github.com/akinsho/bufferline.nvim/issues/903
     -- version = "*",
-    commit = "73540cb",
     lazy = false,
     keys = {
       { "<leader>bp", "<CMD>BufferLineTogglePin<CR>", desc = "Toggle Buffer Pin" },
