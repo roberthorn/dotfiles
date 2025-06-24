@@ -26,3 +26,36 @@ hyper.bindApp({}, "f", "Finder")
 hyper.bindApp({}, "n", "Obsidian")
 hyper.bindApp({}, "t", "Ghostty")
 hyper.bindApp({}, "c", "Claude")
+
+-- Window Tiling System
+local tiling = require "tiling"
+
+-- Bind tiling functions to hyper key combinations
+-- Half screen
+hyper:bind({ "alt" }, "h", tiling.leftHalf)
+hyper:bind({ "alt" }, "l", tiling.rightHalf)
+hyper:bind({ "alt" }, "k", tiling.topHalf)
+hyper:bind({ "alt" }, "j", tiling.bottomHalf)
+
+-- Quarter screen
+hyper:bind({ "alt" }, "u", tiling.topLeft)
+hyper:bind({ "alt" }, "i", tiling.topRight)
+hyper:bind({ "alt" }, "m", tiling.bottomLeft)
+hyper:bind({ "alt" }, ",", tiling.bottomRight)
+
+-- Maximize and center
+hyper:bind({ "alt" }, "return", tiling.maximize)
+hyper:bind({ "alt" }, "space", tiling.center)
+
+-- Third-width (useful for ultrawide monitors)
+hyper:bind({ "shift" }, "h", tiling.leftThird)
+hyper:bind({ "shift" }, "j", tiling.centerThird)
+hyper:bind({ "shift" }, "l", tiling.rightThird)
+
+-- Two-thirds
+hyper:bind({ "shift" }, "u", tiling.leftTwoThirds)
+hyper:bind({ "shift" }, "i", tiling.rightTwoThirds)
+
+-- Move between screens
+hyper:bind({ "alt" }, "]", tiling.moveToNextScreen)
+hyper:bind({ "alt" }, "[", tiling.moveToPrevScreen)
