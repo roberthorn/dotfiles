@@ -5,6 +5,11 @@ aerospace:
 	rm -rf ~/.config/aerospace
 	ln -s $(CWD)/aerospace ~/.config/aerospace
 
+.PHONY: claude
+claude:
+	rm -rf ~/.claude
+	ln -s $(CWD)/claude ~/.claude
+
 .PHONY: direnv
 direnv:
 	rm -rf ~/.config/direnv
@@ -55,4 +60,4 @@ zsh:
 	ln -s $(CWD)/zsh ~/.config/zsh
 
 .PHONY: install
-install: aerospace direnv git hammerspoon nvim tmux wezterm zsh
+install: aerospace claude direnv git hammerspoon nvim tmux wezterm zsh
