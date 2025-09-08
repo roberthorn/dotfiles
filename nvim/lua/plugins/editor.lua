@@ -106,6 +106,9 @@ return {
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
+          javascript = { "prettier" },
+          jsx = { "prettier" },
+          typescript = { "prettier" },
         },
       }
 
