@@ -1,6 +1,6 @@
 font-family = Hack Nerd Font Mono
 macos-titlebar-proxy-icon = hidden
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 shell-integration-features = no-title
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
