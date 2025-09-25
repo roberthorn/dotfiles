@@ -48,8 +48,6 @@ local on_attach = function(_, bufnr)
   end, "[F]ormat")
 end
 
-local lspconfig = require "lspconfig"
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
@@ -61,7 +59,6 @@ local servers = {
   eslint = true,
   gopls = {
     root_dir = function(fname)
-      local util = require "lspconfig.util"
       -- see: https://github.com/neovim/nvim-lspconfig/issues/804
       -- see: https://github.com/neovim/nvim-lspconfig/issues/2733
       local mod_cache = vim.trim(vim.fn.system "go env GOMODCACHE")
@@ -71,7 +68,7 @@ local servers = {
           return clients[#clients].config.root_dir
         end
       end
-      return util.root_pattern "go.work"(fname) or util.root_pattern("go.mod", ".git")(fname)
+      return vim.lsp.util.root_pattern "go.work"(fname) or vim.lsp.util.root_pattern("go.mod", ".git")(fname)
     end,
   },
   html = true,
@@ -125,7 +122,8 @@ local setup_server = function(server, config)
     on_attach = on_attach,
   }, config)
 
-  lspconfig[server].setup(config)
+  vim.lsp.config(server, config)
+  vim.lsp.enable(server)
 end
 
 for server, config in pairs(servers) do
