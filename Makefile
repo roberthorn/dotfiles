@@ -10,11 +10,6 @@ claude:
 	rm -rf ~/.claude
 	ln -s $(CWD)/claude ~/.claude
 
-.PHONY: direnv
-direnv:
-	rm -rf ~/.config/direnv
-	ln -s $(CWD)/direnv ~/.config/direnv
-
 .PHONY: ghostty
 ghostty:
 	rm -rf ~/.config/ghostty
@@ -60,4 +55,4 @@ zsh:
 	ln -s $(CWD)/zsh ~/.config/zsh
 
 .PHONY: install
-install: aerospace claude direnv git hammerspoon nvim tmux wezterm zsh
+install: aerospace claude git hammerspoon nvim tmux wezterm zsh
