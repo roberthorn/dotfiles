@@ -1,6 +1,7 @@
 -- leader, should be as early as possible for mappings to use correct leader
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
