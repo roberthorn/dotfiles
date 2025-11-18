@@ -24,6 +24,7 @@ return {
         "ruby",
         "rust",
         "sql",
+        "starlark",
         "terraform",
         "tsx",
         "typescript",
