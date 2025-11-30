@@ -44,15 +44,10 @@ tmux: tpm-install
 tpm-install:
 	git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
-.PHONY: wezterm
-wezterm:
-	rm -rf ~/.config/wezterm
-	ln -s $(CWD)/wezterm ~/.config/wezterm
-
 .PHONY: zsh
 zsh:
 	rm -rf ~/.config/zsh
 	ln -s $(CWD)/zsh ~/.config/zsh
 
 .PHONY: install
-install: aerospace claude git hammerspoon nvim tmux wezterm zsh
+install: aerospace claude ghostty git hammerspoon nvim tmux zsh
