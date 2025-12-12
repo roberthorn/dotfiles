@@ -1,2 +1,4 @@
+*.bak
+
 tmux/plugins
 git/config.local

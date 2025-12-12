@@ -19,13 +19,10 @@ return {
     "nvim-lualine/lualine.nvim",
     version = "*",
     lazy = false,
-    dependencies = {
-      "catppuccin",
-    },
+    dependencies = {},
     opts = {
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
         globalstatus = true,
       },
       sections = {
