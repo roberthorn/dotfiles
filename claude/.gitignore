@@ -1,5 +1,3 @@
-ide
-local
-projects
-statsig
-todos
+*
+!CLAUDE.md
+!settings.json
