@@ -2,5 +2,13 @@
   "env": {
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_TELEMETRY": "1"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
   }
 }

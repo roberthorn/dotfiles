@@ -20,6 +20,7 @@ fi
 typeset -gU cdpath fpath mailpath path
 
 path=(
+  ~/.local/bin
   ~/.bin
   /usr/local/{bin,sbin}
   /opt/homebrew/{bin,sbin}
