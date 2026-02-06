@@ -59,6 +59,7 @@ local servers = {
   eslint = true,
   gopls = true,
   html = true,
+  jsonnet_ls = true,
   lua_ls = {
     settings = {
       Lua = {
