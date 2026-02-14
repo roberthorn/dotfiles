@@ -9,12 +9,8 @@
     "commit": "",
     "pr": ""
   },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [],
-    "ask": [],
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(wget:*)",
@@ -22,11 +18,38 @@
       "Bash(git reset --hard:*)",
       "Read(.env)",
       "Read(.env.*)"
-    ]
+    ],
+    "ask": []
   },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "padding": 0
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "Bottling",
+      "Brewing",
+      "Burping",
+      "Carbonating",
+      "Checking gravity",
+      "Conditioning",
+      "Crushing malt",
+      "Decocting",
+      "Dry Hopping",
+      "Fermenting",
+      "Kegging",
+      "Lagering",
+      "Lautering",
+      "Mashing",
+      "Milling",
+      "Pitching yeast",
+      "Racking",
+      "Sparging"
+    ]
   }
 }
