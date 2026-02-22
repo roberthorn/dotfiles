@@ -8,17 +8,28 @@ function M.setup(opts)
 
   Util.day_brightness = opts.day_brightness
 
-  ---@type Palette
+  ---@class Palette
   local palette = {
-    -- Mapped from ghostty-default-style-dark
+    -- base16, mapped from ghostty-default-style-dark
+    black = "#1d1f21", -- 0
+    black_bright = "#666666", -- 8
+    red = "#cc6566", -- 1
+    red_bright = "#d54e53", -- 9
+    green = "#b6bd68", -- 2
+    green_bright = "#b9ca4b", -- 10
+    yellow = "#f0c674", -- 3
+    yellow_bright = "#e7c547", -- 11
+    blue = "#82a2be", -- 4
+    blue_bright = "#7aa6da", -- 12
+    magenta = "#b294bb", -- 5
+    magenta_bright = "#c397d8", -- 13
+    cyan = "#8abeb7", -- 6
+    cyan_bright = "#70c0b1", -- 14
+    white = "#c4c8c6", -- 7
+    white_bright = "#eaeaea", -- 15
+
     bg = "#282c34",
     fg = "#ffffff",
-    red = "#cc6566",
-    green = "#b6bd68",
-    yellow = "#f0c674",
-    blue = "#82a2be",
-    magenta = "#b294bb",
-    cyan = "#8abeb7",
     fg_dark = "#c4c8c6",
 
     bg_dark = "#1d1f21",

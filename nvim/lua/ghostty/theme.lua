@@ -1,5 +1,3 @@
-local Util = require "ghostty.util"
-
 local M = {}
 
 ---@param opts? ghostty.Config
