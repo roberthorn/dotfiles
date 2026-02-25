@@ -34,12 +34,6 @@ rm -rf ~/.config/nvim
 ln -s $(pwd)/nvim ~/.config/nvim
 """
 
-[tasks."configure:scripts"]
-run = """
-rm -rf ~/.bin
-ln -s $(pwd)/bin ~/.bin
-"""
-
 [tasks."install:tpm"]
 run = "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
 
@@ -56,5 +50,11 @@ rm -rf ~/.config/zsh
 ln -s $(pwd)/zsh ~/.config/zsh
 """
 
+[tasks."install:scripts"]
+run = """
+rm -rf ~/.bin
+ln -s $(pwd)/bin ~/.bin
+"""
+
 [tasks.configure]
-depends = ["configure:*"]
+depends = ["configure:*", "install:scripts"]
