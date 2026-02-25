@@ -4,7 +4,7 @@ What I'm using... Always a WIP
 
 ## Install
 
-`make all`
+`mise configure`
 
 ## Setting up hyper key
 

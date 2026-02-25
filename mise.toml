@@ -1,0 +1,60 @@
+[tasks."configure:aerospace"]
+run = """
+rm -rf ~/.config/aerospace
+ln -s $(pwd)/aerospace ~/.config/aerospace
+"""
+
+[tasks."configure:claude"]
+run = """
+rm -rf ~/.claude
+ln -s $(pwd)/claude ~/.claude
+"""
+
+[tasks."configure:ghostty"]
+run = """
+rm -rf ~/.config/ghostty
+ln -s $(pwd)/ghostty ~/.config/ghostty
+"""
+
+[tasks."configure:git"]
+run = """
+rm -rf ~/.config/git
+ln -s $(pwd)/git ~/.config/git
+"""
+
+[tasks."configure:hammerspoon"]
+run = """
+rm -rf ~/.hammerspoon
+ln -s $(pwd)/hammerspoon ~/.hammerspoon
+"""
+
+[tasks."configure:nvim"]
+run = """
+rm -rf ~/.config/nvim
+ln -s $(pwd)/nvim ~/.config/nvim
+"""
+
+[tasks."configure:scripts"]
+run = """
+rm -rf ~/.bin
+ln -s $(pwd)/bin ~/.bin
+"""
+
+[tasks."install:tpm"]
+run = "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
+
+[tasks."configure:tmux"]
+depends = ["install:tpm"]
+run = """
+rm -rf ~/.config/tmux
+ln -s $(pwd)/tmux ~/.config/tmux
+"""
+
+[tasks."configure:zsh"]
+run = """
+rm -rf ~/.config/zsh
+ln -s $(pwd)/zsh ~/.config/zsh
+"""
+
+[tasks.configure]
+depends = ["configure:*"]
