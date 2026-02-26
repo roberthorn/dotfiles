@@ -30,10 +30,10 @@ function M.setup(opts)
 
     bg = "#282c34",
     fg = "#ffffff",
-    fg_dark = "#c4c8c6",
+    fg_dark = "#c4c8c6", -- white
 
-    bg_dark = "#1d1f21",
-    bg_dark1 = "#1d1f21",
+    bg_dark = "#1d1f21", -- black
+    bg_dark1 = "#1d1f21", -- black
 
     bg_highlight = "#353a44",
     blue0 = "#7aa6da", -- bright blue
@@ -41,7 +41,7 @@ function M.setup(opts)
     blue2 = "#82a2be", -- blue
     blue5 = "#8abeb7", -- cyan
     blue6 = "#70c0b1", -- bright cyan again
-    blue7 = Util.blend("#82a2be", 0.5, "#282c34"),
+    blue7 = Util.blend("#82a2be", 0.5, "#282c34"), -- blue w/ bg
     comment = "#666666", -- bright black from ghostty
     dark3 = "#666666", -- bright black
     dark5 = "#c4c8c6", -- white
@@ -53,7 +53,7 @@ function M.setup(opts)
     purple = "#b294bb", -- magenta
     red1 = "#d54e53", -- bright red
     teal = "#8abeb7", -- cyan
-    terminal_black = "#1d1f21",
+    terminal_black = "#1d1f21", -- black
 
     git = {
       add = "#b9ca4b", -- bright green

@@ -1,7 +1,7 @@
 local c = require("ghostty.colors").setup()
 
 local M = {
-  normal = { bg = c.none, fg = c.fg_dark },
+  normal = { bg = c.bg, fg = c.fg_dark },
 
   ellipsis = { fg = c.dark5 },
   separator = { fg = c.dark5 },
