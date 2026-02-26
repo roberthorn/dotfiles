@@ -65,7 +65,15 @@ ln -s $(pwd)/bin ~/.bin
 depends = ["configure:*", "install:scripts"]
 
 ## Formatting/Linting
+[tasks."fmt:hammerspoon"]
+run = """
+stylua hammerspoon
+"""
+
 [tasks."fmt:nvim"]
 run = """
 stylua nvim
 """
+
+[tasks.fmt]
+depends = ["fmt:*"]
