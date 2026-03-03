@@ -48,8 +48,6 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    -- * is broken in 0.10, see https://github.com/akinsho/bufferline.nvim/issues/903
-    -- version = "*",
     lazy = false,
     keys = {
       { "<leader>bp", "<CMD>BufferLineTogglePin<CR>", desc = "Toggle Buffer Pin" },
@@ -122,26 +120,25 @@ return {
     "ggandor/leap.nvim",
     url = "https://codeberg.org/andyg/leap.nvim.git",
     version = "*",
+    lazy = false,
     opts = {
       highlight_unlabeled_phase_one_targets = true,
     },
     config = function(_, opts)
       local leap = require "leap"
-      leap.setup(opts)
-      leap.create_default_mappings()
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+
+      vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+      vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+      vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
     end,
   },
 
   {
     "kylechui/nvim-surround",
     version = "*",
-    opts = {
-      keymaps = {
-        -- TODO: set these to something else, these cause an annoying delay
-        -- visual = "ys",
-        -- visual_line = "yS",
-      },
-    },
   },
 
   {
@@ -158,12 +155,6 @@ return {
     opts = {},
     lazy = false,
   },
-
-  --[[ {
-    "declancm/cinnamon.nvim",
-    version = "*",
-    opts = {},
-  }, ]]
 
   {
     "lewis6991/gitsigns.nvim",
