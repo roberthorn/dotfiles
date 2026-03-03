@@ -120,6 +120,7 @@ return {
 
   {
     "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim.git",
     version = "*",
     opts = {
       highlight_unlabeled_phase_one_targets = true,
