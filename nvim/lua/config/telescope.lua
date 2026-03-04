@@ -12,6 +12,15 @@ require("telescope").setup {
       hidden = { file_browser = true, folder_browser = false },
       theme = "ivy",
     },
+    live_grep_args = {
+      mappings = {
+        i = {
+          ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+          ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt { postfix = " --iglob " },
+        },
+      },
+      theme = "ivy",
+    },
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
@@ -24,15 +33,23 @@ require("telescope").setup {
 require("telescope").load_extension "fzf"
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "ui-select"
+require("telescope").load_extension "live_grep_args"
 
 local nmap = require("rh.keymap").nmap
 
 nmap {
   "<leader>;",
   function()
+    require("telescope.builtin").builtin(require("telescope.themes").get_ivy { preview = false })
+  end,
+  { desc = "[;] Choose picker" },
+}
+nmap {
+  "<leader>b",
+  function()
     require("telescope.builtin").buffers(require("telescope.themes").get_ivy {})
   end,
-  { desc = "[;] Find existing buffer" },
+  { desc = "[b] Find existing buffer" },
 }
 nmap {
   "<leader>?",
@@ -75,7 +92,8 @@ nmap {
 nmap {
   "<leader>sg",
   function()
-    require("telescope.builtin").live_grep(require("telescope.themes").get_ivy {})
+    -- require("telescope.builtin").live_grep(require("telescope.themes").get_ivy {})
+    require("telescope").extensions.live_grep_args.live_grep_args()
   end,
   { desc = "[S]earch by [G]rep" },
 }
