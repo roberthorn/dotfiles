@@ -10,6 +10,7 @@ require("telescope").setup {
   extensions = {
     file_browser = {
       hidden = { file_browser = true, folder_browser = false },
+      no_ignore = true,
       theme = "ivy",
     },
     live_grep_args = {
@@ -45,11 +46,11 @@ nmap {
   { desc = "[;] Choose picker" },
 }
 nmap {
-  "<leader>b",
+  "<leader>sb",
   function()
     require("telescope.builtin").buffers(require("telescope.themes").get_ivy {})
   end,
-  { desc = "[b] Find existing buffer" },
+  { desc = "[S] existing [B]uffers" },
 }
 nmap {
   "<leader>?",
