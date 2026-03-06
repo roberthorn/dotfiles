@@ -31,8 +31,8 @@
       "Bash(wget:*)",
       "Bash(git push --force:*)",
       "Bash(git reset --hard:*)",
-      "Read(.env)",
-      "Read(.env.*)"
+      "Read(**/.env)",
+      "Read(**/.env.*)"
     ],
     "ask": []
   },
