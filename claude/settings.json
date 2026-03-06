@@ -10,7 +10,22 @@
     "pr": ""
   },
   "permissions": {
-    "allow": [],
+    "defaultMode": "plan",
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(pwd)",
+      "Bash(diff:*)",
+      "Bash(fd:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "Grep"
+    ],
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(wget:*)",
