@@ -39,6 +39,12 @@ rm -rf ~/.config/nvim
 ln -s $(pwd)/nvim ~/.config/nvim
 """
 
+[tasks."configure:skhd"]
+run = """
+rm -rf ~/.config/skhd
+ln -s $(pwd)/skhd ~/.config/skhd
+"""
+
 [tasks."install:tpm"]
 run = "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
 
