@@ -10,7 +10,6 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "plan",
     "allow": [
       "Bash(cat:*)",
       "Bash(head:*)",
@@ -34,7 +33,8 @@
       "Read(**/.env)",
       "Read(**/.env.*)"
     ],
-    "ask": []
+    "ask": [],
+    "defaultMode": "plan"
   },
   "statusLine": {
     "type": "command",
