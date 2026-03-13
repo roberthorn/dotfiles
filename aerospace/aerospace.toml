@@ -84,3 +84,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [[on-window-detected]]
 	if.app-id = 'com.apple.finder'
 	run = 'layout floating'
+
+[[on-window-detected]]
+	if.app-id = 'com.apple.MobileSMS'
+	run = 'layout floating'
