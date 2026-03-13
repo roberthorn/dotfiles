@@ -9,10 +9,12 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 -- automatically resize windows when terminal resizes
--- TODO: convert to lua
-vim.cmd [[
-  autocmd VimResized * :wincmd =
-]]
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("wincmd =")
+  end,
+})
 
 -- open telescope if not opening a file
 vim.api.nvim_create_autocmd("VimEnter", {
