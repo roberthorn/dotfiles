@@ -40,6 +40,6 @@ set.clipboard = "unnamed"
 
 vim.cmd.syntax "on"
 
-if vim.fn.has("termguicolors" == 1) then
+if vim.fn.has "termguicolors" == 1 then
   set.termguicolors = true
 end
