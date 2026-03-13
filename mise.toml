@@ -33,6 +33,12 @@ rm -rf ~/.hammerspoon
 ln -s $(pwd)/hammerspoon ~/.hammerspoon
 """
 
+[tasks."configure:karabiner"]
+run = """
+rm -rf ~/.config/karabiner
+ln -s $(pwd)/karabiner ~/.config/karabiner
+"""
+
 [tasks."configure:nvim"]
 run = """
 rm -rf ~/.config/nvim
