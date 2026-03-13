@@ -63,8 +63,13 @@ ln -s $(pwd)/tmux ~/.config/tmux
 
 [tasks."configure:zsh"]
 run = """
+rm -rf ~/.zshenv
 rm -rf ~/.config/zsh
 ln -s $(pwd)/zsh ~/.config/zsh
+cat > ~/.zshenv << 'EOF'
+export ZDOTDIR=$HOME/.config/zsh
+[[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
+EOF
 """
 
 [tasks."install:scripts"]
