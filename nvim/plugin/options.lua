@@ -9,7 +9,6 @@ set.mouse = "a"
 set.history = 1000
 set.backspace = { "indent", "eol", "start" }
 set.list = true
---set.listchars = { tab = "»·", trail = "·" }
 set.splitbelow = true
 set.splitright = true
 set.wrap = true
@@ -25,8 +24,6 @@ set.smartindent = true
 set.shiftwidth = 4
 set.tabstop = 4
 set.softtabstop = 4
-set.foldmethod = "expr"
-set.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- swaps/backups
 set.swapfile = false

@@ -1,10 +1,4 @@
 -- Jump to last position
--- vim.cmd [[
---  autocmd BufReadPost *
---    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
---    \   exe "normal g`\"" |
---    \ endif
---]]
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "?*",
   group = vim.api.nvim_create_augroup("JumpLastPosition", { clear = true }),
@@ -25,6 +19,19 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     if vim.fn.argv(0) == "" then
       require("telescope.builtin").find_files()
+    end
+  end,
+})
+
+-- dynamically use treesitter folds if we have a parser
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  group = vim.api.nvim_create_augroup("TreesitterFolds", { clear = true }),
+  callback = function()
+    local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+    if lang and pcall(vim.treesitter.language.inspect, lang) then
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end
   end,
 })
