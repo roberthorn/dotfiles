@@ -167,18 +167,22 @@ return {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
-  },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = false,
-    main = "ibl",
-    config = function()
-      local config = require("ibl.config").default_config
-      config.indent.tab_char = config.indent.char
-      config.scope.enabled = false
-      require("ibl").setup(config)
-    end,
+    keys = {
+      {
+        "<leader>st",
+        function()
+          Snacks.picker.todo_comments()
+        end,
+        desc = "Todo",
+      },
+      {
+        "<leader>sT",
+        function()
+          Snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
+        end,
+        desc = "Todo/Fix/Fixme",
+      },
+    },
   },
 
   {
@@ -292,6 +296,11 @@ return {
             indent = 3,
           },
           { section = "startup" },
+        },
+      },
+      indent = {
+        animate = {
+          enabled = false,
         },
       },
     },
