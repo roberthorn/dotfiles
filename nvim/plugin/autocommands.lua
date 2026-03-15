@@ -12,16 +12,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",
   callback = function()
-    vim.cmd("wincmd =")
-  end,
-})
-
--- open telescope if not opening a file
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argv(0) == "" then
-      require("telescope.builtin").find_files()
-    end
+    vim.cmd "wincmd ="
   end,
 })
 
