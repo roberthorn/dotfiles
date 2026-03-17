@@ -282,6 +282,7 @@ return {
           { section = "header" },
           { section = "keys", gap = 1, padding = 1 },
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
           {
             icon = " ",
             title = "Git Status",
@@ -332,6 +333,31 @@ return {
     "mghaight/replua.nvim",
     config = function()
       require("replua").setup()
+    end,
+  },
+
+  {
+    "olimorris/persisted.nvim",
+    event = "BufReadPre",
+    opts = {
+      use_git_branch = true,
+    },
+    config = function(_, opts)
+      require("persisted").setup(opts)
+
+      vim.o.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
+
+      -- save current session before swap
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "PersistedTelescopeLoadPre",
+        callback = function(session)
+          -- Save the currently loaded session passing in the path to the current session
+          require("persisted").save { session = vim.g.persisted_loaded_session }
+
+          -- Delete all of the open buffers
+          vim.api.nvim_input "<ESC>:%bd!<CR>"
+        end,
+      })
     end,
   },
 }
