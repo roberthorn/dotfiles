@@ -80,7 +80,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.service.binding]
 	d = 'enable off' # temp disable aerospace
 
-# default to Finder being floating
+# apps to default being floating
 [[on-window-detected]]
 	if.app-id = 'com.apple.finder'
 	run = 'layout floating'
@@ -91,4 +91,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [[on-window-detected]]
 	if.app-id = 'org.whispersystems.signal-desktop'
+	run = 'layout floating'
+
+[[on-window-detected]]
+	if.app-id = 'us.zoom.xos'
 	run = 'layout floating'
