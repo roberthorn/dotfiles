@@ -37,7 +37,7 @@ if [[ -d "$lib_dir" ]]; then
 fi
 unset lib_dir
 
-[[ -e ~/.zshrc.local ]] && source ~/.zshrc.local
+source ~/.zshrc.local 2>/dev/null || :
 
 # compinit
 autoload -Uz compinit
