@@ -29,7 +29,7 @@ fi
 zplug load
 
 # load lib files
-lib_dir=${ZDOTDIR:-~/.config/zsh}/lib
+lib_dir=${ZDOTDIR:-~/.config/zsh}/rc.d
 if [[ -d "$lib_dir" ]]; then
   for file in $lib_dir/*.zsh; do
 	source $file
