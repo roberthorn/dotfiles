@@ -17,12 +17,15 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 # remove duplicates from *paths
-typeset -gU cdpath fpath mailpath path
+typeset -gU cdpath fpath mailpath path PATH
 
 path=(
   ~/.local/bin
   ~/.bin
-  /usr/local/{bin,sbin}
+  /usr/local/bin
   /opt/homebrew/{bin,sbin}
-  $path
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
 )
