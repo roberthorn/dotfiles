@@ -57,7 +57,9 @@ local servers = {
     filetypes = { "css", "less", "scss" },
   },
   eslint = true,
-  gopls = true,
+  gopls = {
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  },
   html = true,
   jsonnet_ls = true,
   lua_ls = {

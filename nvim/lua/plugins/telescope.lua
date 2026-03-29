@@ -9,7 +9,7 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
-      require "config.telescope"
+      require "plugins.config.telescope"
     end,
   },
 }
