@@ -1,8 +1,6 @@
 local nmap = require("rh.keymap").nmap
 local noremap_silent_opts = { noremap = true, silent = true }
 
-nmap { "[d", vim.diagnostic.goto_prev, noremap_silent_opts }
-nmap { "]d", vim.diagnostic.goto_next, noremap_silent_opts }
 nmap { "<space>e", vim.diagnostic.open_float, noremap_silent_opts }
 nmap { "<space>q", vim.diagnostic.setloclist, noremap_silent_opts }
 
