@@ -108,7 +108,13 @@ nmap {
 }
 
 -- file browser
-nmap { "<leader>fe", require("telescope").extensions.file_browser.file_browser, { desc = "[F]ile [E]xplorer" } }
+nmap {
+  "<leader>fe",
+  function()
+    require("telescope").extensions.file_browser.file_browser()
+  end,
+  { desc = "[F]ile [E]xplorer" },
+}
 nmap {
   "<leader>fb",
   function()
