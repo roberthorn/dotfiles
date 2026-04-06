@@ -1,5 +1,9 @@
 local version = vim.version()
 local version_str = string.format("NVIM v%s.%s.%s", version.major, version.minor, version.patch)
+if version.api_prerelease then
+  version_str = string.format("%s-dev+%s", version_str, version.build)
+end
+
 local fmt_logo = function(s1, s2)
   return {
     align = "center",
@@ -8,6 +12,15 @@ local fmt_logo = function(s1, s2)
       { s2, hl = "String" },
     },
   }
+end
+
+local linebreak = function()
+  return { align = "center", text = "" }
+end
+
+local sep = function()
+  local str = string.rep("─", 60)
+  return { align = "center", text = { str, hl = "NonText" } }
 end
 
 return {
@@ -91,11 +104,12 @@ return {
             fmt_logo("│ ", "╲ ││"),
             fmt_logo("││", "╲╲││"),
             fmt_logo("││", " ╲ │"),
-            { align = "center", text = "" },
+            linebreak(),
             { align = "center", text = { "|\\| [- () \\/ | |\\/|", hl = "SnacksDashboardHeader" } },
-            { align = "center", text = "" },
+            linebreak(),
             { align = "center", text = { version_str, hl = "String" } },
           },
+          sep(),
           { section = "keys", gap = 1, padding = 1 },
           { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
