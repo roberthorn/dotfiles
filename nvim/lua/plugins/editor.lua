@@ -126,9 +126,7 @@ return {
     url = "https://codeberg.org/andyg/leap.nvim.git",
     version = "*",
     lazy = false,
-    opts = {
-      highlight_unlabeled_phase_one_targets = true,
-    },
+    opts = {},
     config = function(_, opts)
       local leap = require "leap"
       for k, v in pairs(opts) do
