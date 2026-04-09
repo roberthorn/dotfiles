@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     -- version = "*",
-    branch = "master",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
     opts = {
@@ -128,22 +128,23 @@ return {
       end, { force = true, all = false })
     end,
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.gotmpl = {
-        install_info = {
-          url = "https://github.com/ngalaiko/tree-sitter-go-template",
-          files = { "src/parser.c" },
-        },
-        filetype = "gotmpl",
-        used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
-      }
+      -- require("nvim-treesitter.configs").setup(opts)
+      --
+      -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+      -- parser_config.gotmpl = {
+      --   install_info = {
+      --     url = "https://github.com/ngalaiko/tree-sitter-go-template",
+      --     files = { "src/parser.c" },
+      --   },
+      --   filetype = "gotmpl",
+      --   used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
+      -- }
     end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter-context",
+    version = false,
     opts = {
       enable = true,
       throttle = true,
@@ -158,7 +159,7 @@ return {
     },
   },
 
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  { "nvim-treesitter/nvim-treesitter-textobjects", version = false },
   "windwp/nvim-ts-autotag",
   "RRethy/nvim-treesitter-endwise",
 }
