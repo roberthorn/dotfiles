@@ -51,6 +51,7 @@ return {
         "vimdoc",
         "xml",
         "yaml",
+        "zsh",
       },
       autotag = {
         enable = true,
@@ -128,6 +129,39 @@ return {
       end, { force = true, all = false })
     end,
     config = function(_, opts)
+      require("nvim-treesitter").setup(opts)
+
+      -- auto install
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("tree-sitter-auto", { clear = true }),
+        callback = function(args)
+          local treesitter = require "nvim-treesitter"
+          local lang = vim.treesitter.language.get_lang(args.match)
+          if not lang then
+            return
+          end
+          if
+            vim.list_contains(opts.ensure_installed, lang) and not vim.list_contains(treesitter.get_installed(), lang)
+          then
+            treesitter.install(lang)
+          end
+
+          if vim.treesitter.query.get(lang, "highlights") then
+            vim.treesitter.start(args.buf)
+          end
+
+          if vim.treesitter.query.get(lang, "indents") then
+            vim.opt_local.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+          end
+
+          if vim.treesitter.query.get(lang, "folds") then
+            vim.opt_local.foldmethod = "expr"
+            vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          end
+        end,
+      })
+
+      -- old pre-main config
       -- require("nvim-treesitter.configs").setup(opts)
       --
       -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
