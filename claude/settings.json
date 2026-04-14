@@ -23,6 +23,7 @@
       "Bash(ls:*)",
       "Bash(rg:*)",
       "Bash(grep:*)",
+      "Bash(awk:*)",
       "Grep"
     ],
     "deny": [
