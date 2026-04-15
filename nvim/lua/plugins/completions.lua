@@ -15,11 +15,16 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer", "obsidian" },
         providers = {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+          obsidian = {
+            name = "Obsidian",
+            module = "obsidian-cli.completion.blink",
             score_offset = 100,
           },
         },
