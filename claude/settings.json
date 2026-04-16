@@ -68,5 +68,6 @@
       "Sparging",
       "Tapping kegs"
     ]
-  }
+  },
+  "tui": "fullscreen"
 }
