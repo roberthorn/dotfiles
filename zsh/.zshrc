@@ -14,7 +14,6 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "lib/completion", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
-zplug "plugins/mise", from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
