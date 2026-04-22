@@ -161,6 +161,12 @@ return {
         end,
       })
 
+      vim.api.nvim_create_user_command("TreesitterInstallParsers", function()
+        local treesitter = require("nvim-treesitter")
+        vim.notify(string.format("Installing %d parsers...", #opts.ensure_installed), vim.log.levels.INFO)
+        treesitter.install(opts.ensure_installed, { summary = true })
+      end, {})
+
       -- old pre-main config
       -- require("nvim-treesitter.configs").setup(opts)
       --
