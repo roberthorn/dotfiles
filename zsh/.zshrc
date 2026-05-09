@@ -15,7 +15,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "lib/completion", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -47,6 +47,8 @@ if [[ "$OSTYPE" == (darwin)* ]]; then
     compinit -C;
   fi
 fi
+
+eval "$(starship init zsh)"
 
 # done profiling
 [[ ${ZPROFRC:-0} -eq 0 ]] || { unset ZPROFRC && zprof }
