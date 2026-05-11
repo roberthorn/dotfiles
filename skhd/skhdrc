@@ -1,6 +1,7 @@
 hyper - b : MOZ_DISABLE_SAFE_MODE_KEY=1 open -a "Firefox"
+hyper - c : open -a "Claude"
+hyper - e : aerospace enable toggle
 hyper - f : open -a "Finder"
 hyper - n : open -a "Obsidian"
-hyper - t : open -a "Ghostty"
 hyper - s : open -a "Slack"
-hyper - c : open -a "Claude"
+hyper - t : open -a "Ghostty"
