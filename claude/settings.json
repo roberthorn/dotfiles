@@ -69,5 +69,6 @@
       "Tapping kegs"
     ]
   },
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "theme": "dark"
 }
