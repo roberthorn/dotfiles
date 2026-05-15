@@ -1,3 +1,5 @@
 # vim: ft=gitignore:
 .envrc
 .tool-versions
+
+**/.claude/settings.local.json
