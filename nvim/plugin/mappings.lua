@@ -7,3 +7,5 @@ nmap { "<C-l>", ":wincmd l<cr>", { silent = true } }
 -- Remap for dealing with word wrap
 nmap { "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true } }
 nmap { "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true } }
+
+nmap { "<leader>e", vim.diagnostic.open_float }
