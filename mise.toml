@@ -58,7 +58,10 @@ ln -s $(pwd)/starship/starship.toml ~/.config/starship.toml
 """
 
 [tasks."install:tpm"]
-run = "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm"
+run = """
+[[ -d ~/.config/tmux/plugins/tpm ]] ||
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+"""
 
 [tasks."configure:tmux"]
 depends = ["install:tpm"]
