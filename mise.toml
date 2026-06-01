@@ -39,6 +39,12 @@ rm -rf ~/.config/karabiner
 ln -s $(pwd)/karabiner ~/.config/karabiner
 """
 
+[tasks."configure:lazygit"]
+run = """
+rm -rf ~/.config/lazygit
+ln -s $(pwd)/lazygit ~/.config/lazygit
+"""
+
 [tasks."configure:nvim"]
 run = """
 rm -rf ~/.config/nvim
