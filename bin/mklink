@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -euo pipefail
+
+usage() {
+  echo "Usage: mklink [-f] <target>" >&2
+  exit 1
+}
+
+force=false
+while getopts "f" opt; do
+  case $opt in
+    f) force=true ;;
+    *) usage ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+[[ $# -eq 1 ]] || usage
+
+target="$(realpath "$1" 2>/dev/null)" || { echo "error: '$1' does not exist" >&2; exit 1; }
+
+if [[ ! -x "$target" ]]; then
+  echo "warning: '$target' is not executable" >&2
+fi
+
+mkdir -p ~/.local/bin
+
+name="$(basename "$target")"
+dest="$HOME/.local/bin/$name"
+
+if [[ -e "$dest" || -L "$dest" ]]; then
+  if $force; then
+    ln -sf "$target" "$dest"
+  else
+    echo "error: '$dest' already exists (use -f to overwrite)" >&2
+    exit 1
+  fi
+else
+  ln -s "$target" "$dest"
+fi
+
+echo "$dest -> $target"
