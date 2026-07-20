@@ -4,4 +4,3 @@ shell-integration = zsh
 shell-integration-features = no-title,ssh-env,ssh-terminfo
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
-keybind = shift+enter=text:\x1b\r
