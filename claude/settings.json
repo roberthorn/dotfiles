@@ -24,9 +24,28 @@
       "Bash(rg:*)",
       "Bash(grep:*)",
       "Bash(awk:*)",
+      "Bash(git log:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr view:*)",
       "Grep"
     ],
     "deny": [
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "NotebookEdit",
+      "PowerShell",
+      "PushNotification",
+      "RemoteTrigger",
+      "ReportFindings",
+      "ScheduleWakeup",
+      "SendMessage",
+      "SendUserFile",
+      "ShareOnboardingGuide",
+      "Workflow",
       "Bash(rm -rf:*)",
       "Bash(wget:*)",
       "Bash(git push --force:*)",
@@ -34,16 +53,30 @@
       "Read(**/.env)",
       "Read(**/.env.*)"
     ],
-    "ask": [],
-    "defaultMode": "plan"
+    "ask": []
   },
+  "disableBundledSkills": true,
+  "disableWorkflows": true,
+  "disableRemoteControl": true,
+  "disableClaudeAiConnectors": true,
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "nono@always-further": true,
+    "gcx@gcx-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "gcx-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "grafana/gcx"
+      }
+    }
   },
   "spinnerVerbs": {
     "mode": "replace",
