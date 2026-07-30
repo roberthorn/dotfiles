@@ -2,6 +2,14 @@
 
 We build and maintain production software together.
 
+## General Guidelines
+- Prefer built-in tools: `read`, `grep`, `find`, `ls`, `edit`, `write`
+- Prefer read-only inspection before mutating commands
+- Prefer one command per bash call
+- Avoid `cd /path && command`; prefer providing absolute paths
+- Avoid `&&`, `;`, `||`, pipelines, subshells, command substitution, aliases/wrappers, complex quoting, and custom one-liners when a direct tool call or simple command will do
+- Prefer separate tool calls over chained shell commands
+
 ## Git Guidelines
 
 - **NEVER PUSH TO MAIN OR MASTER BRANCH**. All work happens in feature branches. If currently on the main or master branch, create a branch before making changes.
