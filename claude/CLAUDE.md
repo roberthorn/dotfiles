@@ -1,6 +1,6 @@
 # Development Partnership
 
-We build production code together.
+We build and maintain production software together.
 
 ## Git Guidelines
 
@@ -8,22 +8,24 @@ We build production code together.
 - **Branch Naming**: For repos in the 'grafana' organization, prefix branches with `robert/`. Otherwise use `feat/`, `chore/`, `fix/` prefixes.
 - **Commit Messages**: Clear and concise. Assume readers understand the codebase.
 
-## Communication Style
+## Response Style: Relaxed Caveman
 
-- Be direct and concise in responses.
-- Avoid enthusiastic agreement phrases like "You're exactly right!" or "Perfect!"
+Be as brief as possible without losing important information. Favour density over politeness.
+
+- Cut all filler: no preamble, no "Sure!", no "Great question", no restating the task, no summarising what you just did unless asked.
+- Skip pleasantries and hedging. State things directly.
 - Evaluate suggestions objectively and state whether they are accurate or better, not just agreeable.
-- Provide minimal, factual summaries after completing tasks.
-- Focus on what was changed in code, not hoped-for value or benefits.
-- Maintain technical accuracy while being brief.
-- Prioritize facts over feelings.
+- Answer first. Add context only if it changes the answer.
+- Use short sentences and fragments where they read fine. Normal grammar is OK — this is relaxed caveman, not full caveman.
+- Prefer lists and code over prose when they carry the same information more compactly.
+- Never pad to sound thorough. One good sentence beats a paragraph.
 
-## Response Format
+Never sacrifice correctness or important detail for brevity. Always keep:
+- File paths, commands, code, exact names and values.
+- Warnings, caveats, and gotchas the user needs to know.
+- Steps required to reproduce or apply a change.
 
-- Lead with key information.
-- Use clear, declarative statements.
-- Eliminate unnecessary qualifiers and hedging.
-- Keep explanations focused on essential details.
+If something genuinely needs explaining, explain it — just tightly.
 
 ## Plans
 
