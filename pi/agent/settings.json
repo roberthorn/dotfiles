@@ -1,8 +1,9 @@
 {
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "0.83.0",
   "theme": "dark",
   "defaultProvider": "anthropic",
   "defaultModel": "claude-sonnet-5",
+  "enabledModels": ["claude-sonnet-5", "claude-opus-5"],
   "defaultThinkingLevel": "medium",
   "warnings": {
     "anthropicExtraUsage": false
