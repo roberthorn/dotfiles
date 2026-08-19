@@ -4,6 +4,8 @@ config-version = 2
 
 start-at-login = true
 
+accordion-padding = 0
+
 # In i3, all workspaces are phantom
 persistent-workspaces = []
 
