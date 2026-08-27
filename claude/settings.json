@@ -103,5 +103,6 @@
     ]
   },
   "tui": "fullscreen",
-  "theme": "dark"
+  "theme": "dark",
+  "model": "sonnet"
 }
