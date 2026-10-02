@@ -1,11 +1,15 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.99.2",
   "theme": "dark",
   "defaultProvider": "anthropic",
-  "defaultModel": "claude-sonnet-5",
-  "enabledModels": ["claude-sonnet-5", "claude-opus-5"],
   "defaultThinkingLevel": "medium",
   "warnings": {
     "anthropicExtraUsage": false
-  }
+  },
+  "packages": [
+    {
+      "source": "/Users/roberthorn/.config/nono/packages/nolabs-ai/pi"
+    }
+  ],
+  "defaultModel": "claude-sonnet-5-5"
 }

@@ -1,0 +1,96 @@
+{
+  "$schema": "../profile-schema.json",
+  "meta": {
+    "name": "claude-code-default",
+    "version": "1.0.0",
+    "description": "",
+    "author": null
+  },
+  "extends": [
+    "nolabs-ai/claude",
+    "github-cli"
+  ],
+  "security": {
+    "signal_mode": null,
+    "process_info_mode": null,
+    "ipc_mode": null,
+    "capability_elevation": null,
+    "wsl2_proxy_policy": null
+  },
+  "groups": {
+    "include": [
+      "mise_manager"
+    ],
+    "exclude": []
+  },
+  "commands": {
+    "allow": [],
+    "deny": []
+  },
+  "filesystem": {
+    "allow": [],
+    "read": [
+      "~/Dev/roberthorn/skills/skills"
+    ],
+    "write": [],
+    "allow_file": [],
+    "read_file": [],
+    "write_file": [],
+    "unix_socket": [],
+    "unix_socket_bind": [],
+    "unix_socket_dir": [],
+    "unix_socket_dir_bind": [],
+    "unix_socket_subtree": [],
+    "unix_socket_subtree_bind": [],
+    "deny": [],
+    "bypass_protection": [],
+    "suppress_save_prompt": [
+      "~/Library/Application Support/Arc/User Data",
+      "~/Library/Application Support/BraveSoftware/Brave-Browser",
+      "~/Library/Application Support/Microsoft Edge",
+      "~/Library/Application Support/Vivaldi",
+      "~/Library/Application Support/com.operasoftware.Opera"
+    ]
+  },
+  "network": {
+    "block": false,
+    "allow_http2": false,
+    "allow_domain": [],
+    "deny_domain": [],
+    "credentials": [],
+    "open_port": [],
+    "open_port_range": [],
+    "listen_port": [],
+    "listen_port_range": [],
+    "connect_port": [],
+    "no_proxy": [],
+    "custom_credentials": {},
+    "tls_intercept": null,
+    "upstream_proxy": null,
+    "upstream_bypass": []
+  },
+  "diagnostics": {
+    "suppress_system_services": []
+  },
+  "linux": {
+    "af_unix_mediation": null,
+    "sandbox_policy": null
+  },
+  "env_credentials": {},
+  "credential_capture": {},
+  "credential_providers": {},
+  "credential_routes": [],
+  "workdir": {
+    "access": "readwrite"
+  },
+  "hooks": {},
+  "session_hooks": {},
+  "rollback": {
+    "exclude_patterns": [],
+    "exclude_globs": []
+  },
+  "skipdirs": [],
+  "packs": [],
+  "command_args": [],
+  "unsafe_macos_seatbelt_rules": []
+}

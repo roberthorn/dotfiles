@@ -55,11 +55,11 @@
     ],
     "ask": []
   },
-  "disableBundledSkills": true,
-  "disableWorkflows": true,
-  "disableRemoteControl": true,
+  "model": "opus[1m]",
   "disableClaudeAiConnectors": true,
-  "model": "sonnet",
+  "disableBundledSkills": true,
+  "disableRemoteControl": true,
+  "disableWorkflows": true,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
@@ -67,8 +67,8 @@
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
-    "nono@always-further": true,
-    "gcx@gcx-marketplace": true
+    "gcx@gcx-marketplace": true,
+    "nono@nolabs-ai": true
   },
   "extraKnownMarketplaces": {
     "gcx-marketplace": {
@@ -102,7 +102,11 @@
       "Tapping kegs"
     ]
   },
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
-  "theme": "dark",
-  "model": "sonnet"
+  "theme": "dark"
 }

@@ -1,0 +1,27 @@
+{
+  "$schema": "../profile-schema.json",
+  "meta": {
+    "name": "obsidian",
+    "version": "1.0.0",
+    "description": "Read/write Obsidian vault + obsidian CLI access.",
+    "author": "Robert Horn <rehorn09@gmail.com>"
+  },
+  "commands": {
+    "allow": [
+      "obsidian"
+    ],
+    "deny": []
+  },
+  "filesystem": {
+    "allow": [
+      "~/Notes",
+      "/Applications/Obsidian.app",
+    ],
+    "read": [
+      "~/Library/Application Support/obsidian"
+    ],
+    "unix_socket_dir": [
+      "~/Library/Application Support/obsidian"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "name": "dotfiles",
+    "version": "1.0.0",
+    "description": "Limit access to my personal dotfiles",
+    "author": "Robert Horn <rehorn09@gmail.com>"
+  },
+  "filesystem": {
+    "allow": [],
+    "read": [
+      "~/Dev/roberthorn/dotfiles"
+    ]
+  }
+}

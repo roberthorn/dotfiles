@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "name": "github-cli",
+    "version": "1.0.0",
+    "description": "Limit access to gh regarding the API token et al.",
+    "author": "Robert Horn <rehorn09@gmail.com>"
+  },
+  "command_policies": {
+    "credentials": {
+      "github_gh": {
+        "type": "proxy",
+        "upstream": "https://api.github.com",
+        "credential_key": "github_gh",
+        "inject_header": "Authorization",
+        "credential_format": "token {}",
+        "env_var": "GH_TOKEN"
+      }
+    },
+    "commands": {
+      "gh": {
+        "sandbox": {
+          "fs_read": [
+            ".",
+            "$HOME/.config/gh/"
+          ],
+          "network": {
+            "allow_domain": ["api.github.com"]
+          },
+          "credentials": [
+            {
+              "name": "github_gh",
+              "endpoint_policy": {
+                "default": "allow",
+                "deny": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
