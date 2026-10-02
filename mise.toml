@@ -45,6 +45,12 @@ rm -rf ~/.config/lazygit
 ln -s $(pwd)/lazygit ~/.config/lazygit
 """
 
+[tasks."configure:mise"]
+run = """
+rm -rf ~/.config/mise
+ln -s $(pwd)/mise ~/.config/mise
+"""
+
 [tasks."configure:nono:profiles"]
 run = """
 rm -rf ~/.config/nono/profiles
