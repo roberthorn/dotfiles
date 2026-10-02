@@ -32,6 +32,22 @@
                     },
                     "ignore": false,
                     "treat_as_built_in_keyboard": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 4144,
+                        "vendor_id": 6645
+                    },
+                    "treat_as_built_in_keyboard": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 4144,
+                        "vendor_id": 6645
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
