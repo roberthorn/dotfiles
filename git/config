@@ -23,3 +23,5 @@
 	directory = /usr/local/go
 [include]
 	path = ~/.config/git/config.local
+[init]
+	defaultBranch = main
