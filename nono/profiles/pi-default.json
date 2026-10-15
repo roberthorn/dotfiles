@@ -1,16 +1,14 @@
 {
-  "extends": [
-    "nolabs-ai/pi",
-    "dotfiles",
-    "obsidian",
-    "github-cli"
-  ],
   "meta": {
     "name": "pi-default",
     "version": "1.0.0",
     "description": "",
-    "author": null
+    "author": "Robert Horn <rehorn09@gmail.com>"
   },
+  "extends": [
+    "local-dev",
+    "nolabs-ai/pi"
+  ],
   "security": {
     "signal_mode": null,
     "process_info_mode": null,
@@ -21,9 +19,7 @@
     "wsl2_proxy_policy": null
   },
   "groups": {
-    "include": [
-      "mise_manager"
-    ],
+    "include": [],
     "exclude": []
   },
   "commands": {
@@ -33,7 +29,8 @@
   "filesystem": {
     "allow": [],
     "read": [
-      "~/Dev/roberthorn/skills/skills"
+      "~/Dev/roberthorn/skills/skills",
+      "~/Dev/skills"
     ],
     "write": [],
     "allow_file": [],

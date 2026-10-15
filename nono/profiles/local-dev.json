@@ -1,0 +1,29 @@
+{
+  "$schema": "../profile-schema.json",
+  "meta": {
+    "name": "local-dev"
+    "version": "1.0.0",
+    "description": "Composition of profiles and settings for my local environment",
+    "author": "Robert Horn <rehorn09@gmail.com>"
+  },
+  "extends": [
+    "github-cli"
+  ],
+  "groups": {
+    "include": [
+      "git_config",
+      "go_runtime",
+      "go_runtime_macos",
+      "mise_manager",
+      "user_caches_macos"
+    ]
+  },
+  "filesystem": {
+    "allow": [],
+    "read": [
+      "~/.local/state/mise",
+      "~/.dotfiles",
+      "~/Dev/roberthorn/dotfiles"
+    ]
+  }
+}

@@ -4,11 +4,11 @@
     "name": "claude-code-default",
     "version": "1.0.0",
     "description": "",
-    "author": null
+    "author": "Robert Horn <rehorn09@gmail.com>"
   },
   "extends": [
-    "nolabs-ai/claude",
-    "github-cli"
+    "local-dev",
+    "nolabs-ai/claude"
   ],
   "security": {
     "signal_mode": null,
@@ -18,9 +18,7 @@
     "wsl2_proxy_policy": null
   },
   "groups": {
-    "include": [
-      "mise_manager"
-    ],
+    "include": [],
     "exclude": []
   },
   "commands": {
@@ -30,7 +28,8 @@
   "filesystem": {
     "allow": [],
     "read": [
-      "~/Dev/roberthorn/skills/skills"
+      "~/Dev/roberthorn/skills/skills",
+      "~/Dev/skills"
     ],
     "write": [],
     "allow_file": [],
