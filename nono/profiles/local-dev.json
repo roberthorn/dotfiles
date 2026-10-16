@@ -21,6 +21,7 @@
   "filesystem": {
     "allow": [],
     "read": [
+      "~/.config/gcx",
       "~/.local/state/mise",
       "~/.dotfiles",
       "~/Dev/roberthorn/dotfiles"
