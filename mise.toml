@@ -33,6 +33,12 @@ rm -rf ~/.hammerspoon
 ln -s $(pwd)/hammerspoon ~/.hammerspoon
 """
 
+[tasks."configure:herdr"]
+run = """
+rm -rf ~/.config/herdr/config.toml
+ln -s $(pwd)/herdr/config.toml ~/.config/herdr/config.toml
+"""
+
 [tasks."configure:karabiner"]
 run = """
 rm -rf ~/.config/karabiner

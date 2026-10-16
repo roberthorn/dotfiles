@@ -11,6 +11,7 @@ python = "3.12"
 rust = "latest"
 tree-sitter = "latest"
 uv = "latest"
+herdr = "latest"
 
 [settings]
 
