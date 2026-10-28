@@ -19,10 +19,14 @@
     ]
   },
   "filesystem": {
-    "allow": [],
+    "allow": [
+      "~/.config/herdr",
+      "~/.local/state/gcx",
+      "~/.local/state/mise",
+      "~/Notes/"
+    ],
     "read": [
       "~/.config/gcx",
-      "~/.local/state/mise",
       "~/.dotfiles",
       "~/Dev/roberthorn/dotfiles"
     ]

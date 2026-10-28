@@ -30,7 +30,8 @@
     "allow": [],
     "read": [
       "~/Dev/roberthorn/skills/skills",
-      "~/Dev/skills"
+      "~/Dev/skills",
+      "~/Dev/roberthorn/pi-extensions/"
     ],
     "write": [],
     "allow_file": [],
