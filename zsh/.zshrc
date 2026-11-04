@@ -38,6 +38,10 @@ unset lib_dir
 
 source ~/.zshrc.local 2>/dev/null || :
 
+if [ -n "$REX_BIN_DIR" ]; then
+    export PATH="$REX_BIN_DIR:$PATH"
+fi
+
 # compinit
 autoload -Uz compinit
 if [[ "$OSTYPE" == (darwin)* ]]; then
