@@ -75,6 +75,12 @@ rm -rf ~/.pi
 ln -s $(pwd)/pi ~/.pi
 """
 
+[tasks."configure:rex"]
+run = """
+rm -rf ~/.config/rex
+ln -s $(pwd)/rex ~/.config/rex
+"""
+
 [tasks."configure:skhd"]
 run = """
 rm -rf ~/.config/skhd
