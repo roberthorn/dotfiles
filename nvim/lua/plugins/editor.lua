@@ -235,4 +235,9 @@ return {
       })
     end,
   },
+
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+  },
 }
