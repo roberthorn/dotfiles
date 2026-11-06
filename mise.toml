@@ -138,5 +138,10 @@ run = """
 stylua nvim
 """
 
+[tasks."fmt:rex"]
+run = """
+stylua rex
+"""
+
 [tasks.fmt]
 depends = ["fmt:*"]
